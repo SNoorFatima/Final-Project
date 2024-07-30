@@ -1,0 +1,11 @@
+.first-box::after {
+    content: "";
+    position: relative;
+    width: 210px;
+    height: 210px;
+    background: rgb(69, 39, 160);
+    border-radius: 50%;
+    top: -105px; /* Adjust as needed */
+    right: -105px; /* Adjust as needed */
+    z-index: 0; /* Ensure it appears behind the content */
+}
