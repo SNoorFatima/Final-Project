@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+body{
+    background-color: #ebe9eb;
+    font-family: 'Roboto', sans-serif;
+} 
+
+.first-box::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: rgb(69, 39, 160);
+    border-radius: 50%;
+    top: -105px; /* Adjust as needed */
+    right: -105px; /* Adjust as needed */
+    z-index: 0; /* Ensure it appears behind the content */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.first-box::before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: rgb(94, 65, 182);
+    border-radius: 50%;
+    top: -125px; /* Adjust as needed */
+    right: -15px; /* Adjust as needed */
+    z-index: 0; /* Ensure it appears behind the content */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.linechart .apexcharts-xaxis-texts-g{
+    display: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
+.linechart .apexcharts-yaxis-texts-g{
+    display: none;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a {
+    font-size: 14px;
+    color: rgb(54, 65, 82);
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(33, 150, 243);
+    text-decoration: none;
+}
+.buttons button:hover {
+    text-decoration: none;
+    background-color: rgb(94, 53, 177);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
 }
