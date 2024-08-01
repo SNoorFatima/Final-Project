@@ -32,6 +32,7 @@ import TypographyShowcase from "./components/Utilities/Typography";
 import ColorPalette from "./components/Utilities/colorpallete";
 import ShadowDisplay from "./components/Utilities/Shadow";
 import GridDisplay from "./components/Utilities/Gridplayground";
+import AnimationPlayground from "./components/Utilities/AnimationPlayground";
 
 
 
@@ -66,7 +67,7 @@ const App = () => {
         <Route path="/OrderStatus" element={<OrderStatus/>} />
       </Routes> */}
       <Container>
-      <GridDisplay/>
+      <AnimationPlayground/>
       </Container>
         </Router>  
     </Box> 
