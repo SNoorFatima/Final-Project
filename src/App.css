@@ -88,4 +88,14 @@ a:hover {
   .rbc-selected {
     background-color: #5a54d6;
   }
-  
+  /* .Textclass::after{
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 25px);
+    width: 50px;
+    height: 4px;
+    background-color: rgb(33, 150, 243);
+    border-radius: 3px;
+
+  } */

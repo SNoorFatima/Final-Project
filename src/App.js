@@ -33,6 +33,15 @@ import ColorPalette from "./components/Utilities/colorpallete";
 import ShadowDisplay from "./components/Utilities/Shadow";
 import GridDisplay from "./components/Utilities/Gridplayground";
 import AnimationPlayground from "./components/Utilities/AnimationPlayground";
+import LoginPage from "./components/Pages/Loginpage";
+import SignupPage from "./components/Pages/Signup";
+import ForgotPasswordPage from "./components/Pages/ForgetPassword";
+import CheckMail from "./components/Pages/CheckMail";
+import ResetPasswordPage from "./components/Pages/PasswordReset";
+import VerificationCodePage from "./components/Pages/VerificationPage";
+import Analytics from "./components/Analytics/Analytics";
+
+
 
 
 
@@ -67,7 +76,7 @@ const App = () => {
         <Route path="/OrderStatus" element={<OrderStatus/>} />
       </Routes> */}
       <Container>
-      <AnimationPlayground/>
+     <Analytics/>
       </Container>
         </Router>  
     </Box> 

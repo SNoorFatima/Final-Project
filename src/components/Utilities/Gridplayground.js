@@ -10,9 +10,7 @@ const GridDisplay = () => {
 
   return (
     <Box sx={{ padding: 3 }}>
-        <Paper>
-       <CardHeader title=" Color Palette" titleTypographyProps={{fontSize:"18px"}}/>
-       </Paper>
+       
       {/* Spacing Control */}
       <Paper sx={{ padding: 2, marginBottom: 2 }}>
         <Typography variant="h6" component="div" sx={{ padding: 2 }}>
