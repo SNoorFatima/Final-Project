@@ -16,14 +16,28 @@ import Invoice from "./components/Application/Customer/Createinvoice";
 
 import Navidation_orders from "./components/Application/Customer/Navidation_orders";
 import OrderDetails from "./components/Application/Customer/OrderDetails";
+import OrderStatus from "./components/Application/Customer/OrderStatus";
+import OrderInvoice from "./components/Application/Customer/OrderInvoice";
+import ChatBox from "./components/Application/Chat/chatbox";
+import MailSystem from "./components/Application/Email/MailSystem";
 
 
+
+import './App.css';
+import FullYearCalendar from "./components/Application/Calender";
+import EventCalendar from "./components/Application/Calender";
+import KanbanBoard from "./components/Application/Kanban/kanbanboard";
+import { Container } from "@mui/system";
+import TypographyShowcase from "./components/Utilities/Typography";
+import ColorPalette from "./components/Utilities/colorpallete";
+import ShadowDisplay from "./components/Utilities/Shadow";
+import GridDisplay from "./components/Utilities/Gridplayground";
 
 
 
 const App = () => {
   return (
-    <Box ml={'20px'} mr={'20px'} color={'rgb(238, 242, 246)'}     padding={'20px'} borderRadius= {'8px 8px 0px 0px '}>
+    <Box ml={'20px'} mr={'20px'}      padding={'20px'} borderRadius= {'8px 8px 0px 0px '}>
       <Router>
     {/* <Router>
       <User/>
@@ -44,15 +58,18 @@ const App = () => {
           <Route path="/ChangePassword" element={<ChangePassword/>} />
           <Route path="/SettingsPage" element={<SettingsPage/>} />
         </Routes> */}
-        <Navidation_orders/>
+        
 
-        <Routes>
+        {/* <Routes>
         <Route path="/OrderDetails" element={<OrderDetails/>} />
-        {/* <Route path="/invoice" component={Invoice} />
-        <Route path="/status" component={Status} /> */}
-      </Routes>
+        <Route path="/OrderInvoice" element={<OrderInvoice/>} />
+        <Route path="/OrderStatus" element={<OrderStatus/>} />
+      </Routes> */}
+      <Container>
+      <GridDisplay/>
+      </Container>
         </Router>  
-    </Box>
+    </Box> 
   );
 };
 
