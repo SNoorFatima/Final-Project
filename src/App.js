@@ -40,6 +40,7 @@ import CheckMail from "./components/Pages/CheckMail";
 import ResetPasswordPage from "./components/Pages/PasswordReset";
 import VerificationCodePage from "./components/Pages/VerificationPage";
 import Analytics from "./components/Analytics/Analytics";
+import Statistics from "./components/Statistics/Statistics";
 
 
 
@@ -76,7 +77,7 @@ const App = () => {
         <Route path="/OrderStatus" element={<OrderStatus/>} />
       </Routes> */}
       <Container>
-     <Analytics/>
+     <Statistics/>
       </Container>
         </Router>  
     </Box> 

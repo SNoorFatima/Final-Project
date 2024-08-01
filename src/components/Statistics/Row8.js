@@ -4,72 +4,141 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
 
-const statistics = [
-  {
-    value: 532,
-    label: "Published Project",
-    color: "#7B61FF",
-    backgroundColor: "#EEE5FF",
-  },
-  {
-    value: 4569,
-    label: "Completed Task",
-    color: "#00C853",
-    backgroundColor: "#B9F6CA",
-  },
-  {
-    value: 1005,
-    label: "Pending Task",
-    color: "#FF6D00",
-    backgroundColor: "#FFE0B2",
-  },
-  {
-    value: 365,
-    label: "Issues",
-    color: "#DD2C00",
-    backgroundColor: "#FFCDD2",
-  },
-];
-
 const Row8 = () => {
   return (
     <Grid container justifyContent="center">
       <Grid item xs={12}>
         <Paper sx={{ padding: "16px" }}>
           <Grid container spacing={2}>
-            {statistics.map((stat, index) => (
-              <Grid item xs={12} md={6} key={index}>
-                <Box sx={{ textAlign: "center" }}>
-                  <Typography variant="subtitle2" sx={{ color: "#697586" }}>
-                    {stat.label}
-                  </Typography>
-                  <Typography
-                    variant="h4"
-                    sx={{ fontWeight: "bold", color: "#121926", mt: "8px" }}
+            
+            <Grid item xs={12} md={6}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="subtitle2" sx={{ color: "#697586" }}>
+                  Published Project
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: "bold", color: "#121926", mt: "8px" }}
+                >
+                  532
+                </Typography>
+                <Box sx={{ mt: "16px", position: "relative" }}>
+                  <Box
+                    sx={{
+                      backgroundColor: "#EEE5FF",
+                      height: "8px",
+                      borderRadius: "4px",
+                    }}
                   >
-                    {stat.value}
-                  </Typography>
-                  <Box sx={{ mt: "16px", position: "relative" }}>
                     <Box
                       sx={{
-                        backgroundColor: stat.backgroundColor,
+                        width: `${(532 / 4569) * 100}%`,
+                        backgroundColor: "#7B61FF",
                         height: "8px",
                         borderRadius: "4px",
                       }}
-                    >
-                      <Box
-                        sx={{
-                          width: `${(stat.value / 4569) * 100}%`,
-                          backgroundColor: stat.color,
-                          height: "8px",
-                          borderRadius: "4px",
-                        }}
-                      />
-                    </Box>
+                    />
                   </Box>
                 </Box>
-              </Grid>
-            ))}
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="subtitle2" sx={{ color: "#697586" }}>
+                  Completed Task
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: "bold", color: "#121926", mt: "8px" }}
+                >
+                  4569
+                </Typography>
+                <Box sx={{ mt: "16px", position: "relative" }}>
+                  <Box
+                    sx={{
+                      backgroundColor: "#B9F6CA",
+                      height: "8px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: `${(4569 / 4569) * 100}%`,
+                        backgroundColor: "#00C853",
+                        height: "8px",
+                        borderRadius: "4px",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="subtitle2" sx={{ color: "#697586" }}>
+                  Pending Task
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: "bold", color: "#121926", mt: "8px" }}
+                >
+                  1005
+                </Typography>
+                <Box sx={{ mt: "16px", position: "relative" }}>
+                  <Box
+                    sx={{
+                      backgroundColor: "#FFE0B2",
+                      height: "8px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: `${(1005 / 4569) * 100}%`,
+                        backgroundColor: "#FF6D00",
+                        height: "8px",
+                        borderRadius: "4px",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Box sx={{ textAlign: "center" }}>
+                <Typography variant="subtitle2" sx={{ color: "#697586" }}>
+                  Issues
+                </Typography>
+                <Typography
+                  variant="h4"
+                  sx={{ fontWeight: "bold", color: "#121926", mt: "8px" }}
+                >
+                  365
+                </Typography>
+                <Box sx={{ mt: "16px", position: "relative" }}>
+                  <Box
+                    sx={{
+                      backgroundColor: "#FFCDD2",
+                      height: "8px",
+                      borderRadius: "4px",
+                    }}
+                  >
+                    <Box
+                      sx={{
+                        width: `${(365 / 4569) * 100}%`,
+                        backgroundColor: "#DD2C00",
+                        height: "8px",
+                        borderRadius: "4px",
+                      }}
+                    />
+                  </Box>
+                </Box>
+              </Box>
+            </Grid>
+            
           </Grid>
         </Paper>
       </Grid>

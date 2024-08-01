@@ -1,7 +1,6 @@
 import { CardContent, Grid, Paper, Typography, Box } from '@mui/material';
-import MonetizationOnTwoToneIcon from '@mui/icons-material/MonetizationOnTwoTone';
 import React from 'react';
-import {  LocalMallTwoTone, Twitter } from '@mui/icons-material';
+import {   Twitter } from '@mui/icons-material';
 
 const Twittercard = () => {
   return (

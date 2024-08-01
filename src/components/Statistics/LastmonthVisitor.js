@@ -5,8 +5,8 @@ import { EmojiEventsTwoTone } from "@mui/icons-material";
 
 const LastmonthVisitors = () => {
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} sm={6} md={4}>
+    
+      <Grid item >
         <Paper
           sx={{
             transition: "box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
@@ -51,7 +51,7 @@ const LastmonthVisitors = () => {
           />
         </Paper>
       </Grid>
-    </Grid>
+    
   );
 };
 

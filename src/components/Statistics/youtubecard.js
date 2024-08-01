@@ -1,5 +1,4 @@
 import { CardContent, Grid, Paper, Typography, Box } from '@mui/material';
-import MonetizationOnTwoToneIcon from '@mui/icons-material/MonetizationOnTwoTone';
 import React from 'react';
 import { LinkedIn } from '@mui/icons-material';
 

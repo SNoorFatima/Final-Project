@@ -14,8 +14,8 @@ const CustomerSatisfaction = () => {
   };
 
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} md={6} lg={4}>
+    
+      <Grid item >
         <Card >
           <CardHeader  sx={{ padding: "24px",  }}
             title={data.title}
@@ -85,7 +85,7 @@ const CustomerSatisfaction = () => {
           </CardContent>
         </Card>
       </Grid>
-    </Grid>
+   
   );
 };
 

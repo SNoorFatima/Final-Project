@@ -6,7 +6,7 @@ const DashboardBoxes = () => {
   return (
     <Grid container spacing={2}>
       {/* First Row of Boxes */}
-      <Grid item xs={12} sx={{ padding: '0px !important' }}>
+      <Grid item xs={12} >
         <Grid container spacing={0} sx={{ display: "flex" }}>
           <Grid item xs={6} sx={{ padding: 0 }}>
             <Grid
@@ -90,7 +90,7 @@ const DashboardBoxes = () => {
       </Grid>
 
       {/* Second Row of Boxes */}
-      <Grid item xs={12} sx={{ padding: '0px !important' }}>
+      <Grid item xs={12} sx={{pt:'0px !important'}}>
         <Grid container spacing={0} sx={{ display: "flex" }}>
           <Grid item xs={6}>
             <Grid

@@ -4,8 +4,8 @@ import React from "react";
 
 const Weatherbox = () => {
   return (
-    <Grid container>
-            <Grid item xs={12} md={6} lg={4}>
+    
+            <Grid >
       <Paper>
         <CardContent sx={{padding:"0 0 0 0 !important"}}>
           <Grid container>
@@ -21,7 +21,7 @@ const Weatherbox = () => {
         </CardContent>
       </Paper>
       </Grid>
-    </Grid>
+   
   );
 };
 
