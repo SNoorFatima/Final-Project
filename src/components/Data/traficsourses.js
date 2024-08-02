@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, List, ListItem, LinearProgress, Paper } from '@mui/material';
+import { Typography, List, ListItem, LinearProgress, Paper, Divider } from '@mui/material';
 
 const trafficData = [
   { label: 'Direct', value: 80, color: 'primary' },
@@ -12,10 +12,15 @@ const trafficData = [
 
 const TrafficSources = () => {
   return (
-    <Paper style={{ padding: '20px', maxWidth: '400px', margin: 'auto' }}>
-      <Typography variant="h6" gutterBottom>
-        Traffic Sources
-      </Typography>
+    <>
+    <Paper style={{ padding: '20px',borderEndStartRadius:0,borderEndEndRadius:0}}><Typography variant="h6" >
+    Traffic Sources
+      </Typography></Paper>
+      
+      <Divider/>
+   
+    <Paper style={{ padding: '20px', borderTopLeftRadius:0,borderTopRightRadius:0}}>
+      
       <List>
         {trafficData.map((source, index) => (
           <ListItem key={index} style={{ display: 'flex', alignItems: 'center' }}>
@@ -35,6 +40,7 @@ const TrafficSources = () => {
         ))}
       </List>
     </Paper>
+    </>
   );
 };
 

@@ -41,6 +41,7 @@ import ResetPasswordPage from "./components/Pages/PasswordReset";
 import VerificationCodePage from "./components/Pages/VerificationPage";
 import Analytics from "./components/Analytics/Analytics";
 import Statistics from "./components/Statistics/Statistics";
+import Data from "./components/Data/Data";
 
 
 
@@ -77,7 +78,7 @@ const App = () => {
         <Route path="/OrderStatus" element={<OrderStatus/>} />
       </Routes> */}
       <Container>
-     <Statistics/>
+     <Data/>
       </Container>
         </Router>  
     </Box> 

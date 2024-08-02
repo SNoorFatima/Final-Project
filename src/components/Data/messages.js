@@ -21,7 +21,7 @@ const messages = [
     icon: <TwitterIcon />,
     iconColor: "#1DA1F2",
     title: "+ 1652 Followers",
-    description: "You’re getting more and more followers, keep it up!",
+    description: "You’re getting more and more followers",
   },
   {
     time: "4 hrs ago",
@@ -63,7 +63,7 @@ const Messages = () => {
       <CardContent sx={{ p: 2 }}>
         {messages.map((message, index) => (
           <Grid container key={index} sx={{ mb: 2 }} spacing={2}>
-            <Grid item xs={12}>
+            <Grid item >
               <Grid container alignItems="center" spacing={2}>
                 <Grid item>
                     <Grid container>

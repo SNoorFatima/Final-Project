@@ -47,7 +47,7 @@ const tasks = [
 
 const Tasks = () => {
   return (
-    <Card sx={{ maxWidth: 345, mx: "auto" }}>
+    <Card sx={{ maxWidth: 345}}>
       <CardHeader title="Tasks" />
       <Divider />
       <CardContent>

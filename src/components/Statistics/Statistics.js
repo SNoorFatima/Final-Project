@@ -34,7 +34,7 @@ import Weatherbox from "./Weatherbox";
 const Statistics = () => {
   return (
     <Grid container spacing={3}>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} md={6} >
         <Paper>
           <CardContent>
             <Grid
@@ -70,7 +70,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} md={6}>
         <Paper>
           <CardContent>
             <Grid
@@ -106,7 +106,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} md={6}>
         <Paper>
           <CardContent>
             <Grid
@@ -142,7 +142,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} md={6}>
         <Paper>
           <CardContent>
             <Grid
@@ -178,16 +178,16 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={4}>
+      <Grid item lg={4} md={12} >
         <Revenuecard />
       </Grid>
-      <Grid item lg={4}>
+      <Grid item lg={4} xs={12} md={6}>
         <Orderscard />
       </Grid>
-      <Grid item lg={4}>
+      <Grid item lg={4} xs={12} md={6}>
         <TotalSales />
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} sm={6}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -218,7 +218,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} sm={6}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -249,7 +249,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} sm={6}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -280,7 +280,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item lg={3}>
+      <Grid item lg={3} xs={12} sm={6}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -311,7 +311,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <Grid container alignItems="center">
             <Grid
@@ -358,7 +358,7 @@ const Statistics = () => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <Grid container alignItems="center">
             <Grid
@@ -405,7 +405,7 @@ const Statistics = () => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <Grid container alignItems="center">
             <Grid
@@ -452,7 +452,7 @@ const Statistics = () => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <Grid container alignItems="center">
             <Grid
@@ -498,7 +498,7 @@ const Statistics = () => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" direction={"column"}>
@@ -536,7 +536,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" direction={"column"}>
@@ -574,7 +574,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" direction={"column"}>
@@ -612,7 +612,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" direction={"column"}>
@@ -650,19 +650,19 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Facebookcard />
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Twittercard />
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Youtubecard />
       </Grid>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={6} lg={3}>
         <Linkdencard />
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -709,7 +709,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -758,7 +758,7 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item  xs={12} lg={4}>
         <Paper>
           <CardContent>
             <Grid container alignItems="center" justifyContent="space-between">
@@ -805,10 +805,10 @@ const Statistics = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} >
         <Paper sx={{ padding: "16px" }}>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6} lg={3}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" sx={{ color: "#697586" }}>
                   Published Project
@@ -839,8 +839,7 @@ const Statistics = () => {
                 </Box>
               </Box>
             </Grid>
-
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6} lg={3}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" sx={{ color: "#697586" }}>
                   Completed Task
@@ -871,8 +870,7 @@ const Statistics = () => {
                 </Box>
               </Box>
             </Grid>
-
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6} lg={3}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" sx={{ color: "#697586" }}>
                   Pending Task
@@ -904,7 +902,7 @@ const Statistics = () => {
               </Box>
             </Grid>
 
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6} lg={3}>
               <Box sx={{ textAlign: "center" }}>
                 <Typography variant="subtitle2" sx={{ color: "#697586" }}>
                   Issues
@@ -938,22 +936,22 @@ const Statistics = () => {
           </Grid>
         </Paper>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <Dailyusers />
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} lg={4}>
         <Dailypageview />
       </Grid>
-      <Grid item xs={12} md={4}>
+      <Grid item xs={12} lg={4}>
         <LastmonthVisitors/>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} lg={4}>
         <CustomerSatisfaction/>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12} sm={6} lg={4}>
       <DashboardBoxes/>
       </Grid>
-      <Grid item xs={12} sm={6} md={4}>
+      <Grid item xs={12}  lg={4}>
       <Weatherbox/>
       </Grid>
     </Grid>

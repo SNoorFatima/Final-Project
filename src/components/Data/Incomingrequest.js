@@ -18,13 +18,15 @@ const requests = [
   { text: "New order received", color: blue[500] },
   { text: "Incoming requests", color: green[500] },
   { text: "You have 2 pending requests..", color: red[500] },
+  { text: "New order received", color: blue[500] },
+  { text: "Incoming requests", color: green[500] },
+  { text: "You have 2 pending requests..", color: red[500] },
 ];
 
 const IncomingRequests = () => {
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} md={6} lg={4}>
-        <Card sx={{ height: "400px", display: "flex", flexDirection: "column" }}>
+   <Grid item >
+        <Card sx={{ display: "flex", flexDirection: "column" }}>
           <CardHeader
             title="Incoming Requests"
             titleTypographyProps={{ variant: "subtitle1", sx: { color: "#697586" } }}
@@ -33,7 +35,7 @@ const IncomingRequests = () => {
           <CardContent sx={{ padding: 0}}>
             <Box
               sx={{
-                maxHeight: "150px",
+                maxHeight: "250px",
                 overflowY: "auto",
                 padding: "16px",
               }}
@@ -52,7 +54,7 @@ const IncomingRequests = () => {
             </Box>
           </CardContent>
           <Divider />
-          <Box sx={{ textAlign: "center" }}>
+          <Box sx={{ textAlign: "center",p:2 }}>
             <Typography
               variant="body2"
               color="rgb(33, 150, 243)"
@@ -65,7 +67,7 @@ const IncomingRequests = () => {
           </Box>
         </Card>
       </Grid>
-    </Grid>
+   
   );
 };
 

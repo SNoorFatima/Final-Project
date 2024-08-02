@@ -28,8 +28,8 @@ const productSales = {
 
 const ProductSalesTable = () => {
   return (
-    <Grid container justifyContent="center">
-      <Grid item xs={12} md={6}>
+   
+      <Grid item >
         <Paper>
           <CardHeader title="Product Sales" titleTypographyProps={{ fontSize: "18px", fontWeight: "500" }} />
           <Divider />
@@ -61,7 +61,7 @@ const ProductSalesTable = () => {
           </CardContent>
         </Paper>
       </Grid>
-    </Grid>
+    
   );
 };
 

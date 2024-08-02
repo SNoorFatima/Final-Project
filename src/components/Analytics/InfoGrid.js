@@ -28,11 +28,10 @@ const DashboardBoxes = () => {
               }}
             >
               <Grid container spacing={2} sx={{ alignItems: "center", justifyContent: "center", textAlign: "center", flexDirection: "row", paddingTop: '0px', paddingLeft: '0px' }}>
-                <Grid item xs={3} sx={{ padding: "8px 0px 0px 8px !important" }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important" }}>
                   <IconShare
                     style={{
-                      width: '50px',
-                      height: '50px',
+                  
                       color: '#673ab7',
                       borderRadius: '14px',
                       padding: '10px',
@@ -40,7 +39,7 @@ const DashboardBoxes = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={9} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
                   <Typography variant="h5" sx={{ fontSize: '14px' }}>1000</Typography>
                   <Typography variant="h6" sx={{ fontSize: '12px', color: '#697586' }}>SHARES</Typography>
                 </Grid>
@@ -67,11 +66,10 @@ const DashboardBoxes = () => {
               }}
             >
               <Grid container spacing={2} sx={{ alignItems: "center", justifyContent: "center", textAlign: "center", flexDirection: "row", paddingTop: '0px', paddingLeft: '0px' }}>
-                <Grid item xs={3} sx={{ padding: "8px 0px 0px 8px !important" }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important" }}>
                   <IconAccessPoint
                     style={{
-                      width: '50px',
-                      height: '50px',
+                  
                       color: '#673ab7',
                       borderRadius: '14px',
                       padding: '10px',
@@ -79,7 +77,7 @@ const DashboardBoxes = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={9} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
                   <Typography variant="h5" sx={{ fontSize: '14px' }}>600</Typography>
                   <Typography variant="h6" sx={{ fontSize: '12px', color: '#697586' }}>NETWORK</Typography>
                 </Grid>
@@ -111,11 +109,10 @@ const DashboardBoxes = () => {
               }}
             >
               <Grid container spacing={2} sx={{ alignItems: "center", justifyContent: "center", textAlign: "center", flexDirection: "row", paddingTop: '0px', paddingLeft: '0px' }}>
-                <Grid item xs={3} sx={{ padding: "8px 0px 0px 8px !important" }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important" }}>
                   <IconCircles
                     style={{
-                      width: '50px',
-                      height: '50px',
+                  
                       color: '#673ab7',
                       borderRadius: '14px',
                       padding: '10px',
@@ -123,7 +120,7 @@ const DashboardBoxes = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={9} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
                   <Typography variant="h5" sx={{ fontSize: '14px' }}>3550</Typography>
                   <Typography variant="h6" sx={{ fontSize: '12px', color: '#697586' }}>RETURNS</Typography>
                 </Grid>
@@ -148,11 +145,10 @@ const DashboardBoxes = () => {
               }}
             >
               <Grid container spacing={2} sx={{ alignItems: "center", justifyContent: "center", textAlign: "center", flexDirection: "row", paddingTop: '0px', paddingLeft: '0px' }}>
-                <Grid item xs={3} sx={{ padding: "8px 0px 0px 8px !important" }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important" }}>
                   <IconCreditCard
                     style={{
-                      width: '50px',
-                      height: '50px',
+                  
                       color: '#673ab7',
                       borderRadius: '14px',
                       padding: '10px',
@@ -160,7 +156,7 @@ const DashboardBoxes = () => {
                     }}
                   />
                 </Grid>
-                <Grid item xs={9} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
+                <Grid item xs={6} sx={{ padding: "8px 0px 0px 8px !important", alignItems: 'center' }}>
                   <Typography variant="h5" sx={{ fontSize: '14px' }}>100%</Typography>
                   <Typography variant="h6" sx={{ fontSize: '12px', color: '#697586' }}>ORDER</Typography>
                 </Grid>

@@ -14,26 +14,21 @@ const Twittercard = () => {
           color: "#fff",
           display: "flex",
           alignItems: "center",
-          padding: 2,
+          
         }}
       >
         <CardContent sx={{ flex: 1 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sx={{ padding: "8px 0px 0px 8px !important",fontWeight:'600' }}>
+          <Grid container spacing={2} >
+            <Grid item xs={6} md={6} sx={{ fontWeight:'600' }}>
               <Typography variant="h3" sx={{fontSize:'20px'}}>780+</Typography>
-            </Grid>
-            <Grid item xs={12} sx={{ padding: "8px 0px 0px 8px !important",fontWeight:'400' }}>
               <Typography variant="h6" sx={{fontSize:'12px'}}>Twitter Users</Typography>
             </Grid>
-          </Grid>
-        </CardContent>
-        <Box 
+            <Grid item  xs={6}
           sx={{
             display: "flex",
             alignItems: "center",
             justifyContent: "flex-end",
-            width: 100,
-            height: 100,
+           
           }}
         >
           <Twitter
@@ -43,7 +38,11 @@ const Twittercard = () => {
               
             }}
           />
-        </Box>
+        </Grid>
+          </Grid>
+          
+        </CardContent>
+        
       </Paper>
     </Grid>
   );

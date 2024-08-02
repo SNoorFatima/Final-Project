@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { List, ListItem, Checkbox, Typography, IconButton, Paper } from '@mui/material';
+import { List, ListItem, Checkbox, Typography, IconButton, Paper, Divider } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 
 const initialTasks = [
@@ -21,10 +21,14 @@ const ToDoList = () => {
   };
 
   return (
-    <Paper style={{ padding: '20px', maxWidth: '400px', margin: 'auto' }}>
-      <Typography variant="h6" gutterBottom>
+    <>
+    <Paper style={{ padding: '20px',borderEndStartRadius:0,borderEndEndRadius:0}}><Typography variant="h6" >
         To Do List
-      </Typography>
+      </Typography></Paper>
+      
+      <Divider/>
+    <Paper style={{ padding: '20px',borderTopLeftRadius:0,borderTopRightRadius:0}}>
+      
       <List>
         {tasks.map((task, index) => (
           <ListItem key={index} style={{ display: 'flex', alignItems: 'center' }}>
@@ -53,6 +57,7 @@ const ToDoList = () => {
         <AddIcon />
       </IconButton>
     </Paper>
+    </>
   );
 };
 
