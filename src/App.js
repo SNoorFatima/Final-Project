@@ -42,6 +42,9 @@ import VerificationCodePage from "./components/Pages/VerificationPage";
 import Analytics from "./components/Analytics/Analytics";
 import Statistics from "./components/Statistics/Statistics";
 import Data from "./components/Data/Data";
+import Chart from "./components/Chart/Chart";
+import Dashboard from "./components/Dasboard/Dashboard";
+
 
 
 
@@ -78,7 +81,7 @@ const App = () => {
         <Route path="/OrderStatus" element={<OrderStatus/>} />
       </Routes> */}
       <Container>
-     <Data/>
+     <ChatBox/>
       </Container>
         </Router>  
     </Box> 

@@ -116,7 +116,7 @@ const DevicePageViewsChart = () => {
             </Grid>
           ))}
         </Box>
-        <Chart options={options} series={series} type="bar" height={350} />
+        <Chart options={options} series={series} type="bar" height={180} />
       </CardContent>
     </Card>
   );

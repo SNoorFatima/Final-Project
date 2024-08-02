@@ -80,7 +80,7 @@ const BounceRateChart = () => {
           </Stack>
           </Stack>
         </Box>
-        <Chart options={options} series={series} type="bar" height={350} />
+        <Chart options={options} series={series} type="bar" height={100} />
       </CardContent>
     </Card>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Box, Typography, IconButton, TextField, Button, Avatar } from '@mui/material';
+import { Box, Typography, IconButton, Avatar, TextField, Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import EmojiPicker from 'emoji-picker-react';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import SendIcon from '@mui/icons-material/Send';
@@ -8,7 +9,7 @@ import VideocamIcon from '@mui/icons-material/Videocam';
 import InfoIcon from '@mui/icons-material/Info';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const ChatArea = ({ selectedUser }) => {
+const ChatArea = ({ selectedUser, toggleSidebar }) => {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([
     { text: 'Hi! Good Morning!', sender: 'them' },
@@ -25,16 +26,24 @@ const ChatArea = ({ selectedUser }) => {
   };
 
   const handleEmojiClick = (event, emojiObject) => {
+    console.log(emojiObject); // Inspect the emoji object
     setMessage((prevMessage) => prevMessage + emojiObject.emoji);
     setShowEmojiPicker(false);
   };
+  
 
   return (
     <Box sx={{ flex: 1, display: 'flex', flexDirection: 'column', p: 2 }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', p: 2, borderBottom: '1px solid #ccc' }}>
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Avatar src={selectedUser.avatar} alt={selectedUser.name} />
-          <Typography variant="h6" ml={2}>{selectedUser.name}</Typography>
+          <IconButton onClick={toggleSidebar}>
+            <MenuIcon />
+          </IconButton>
+          <Avatar src={selectedUser.avatar} alt={selectedUser.name} sx={{ ml: 2 }} />
+          <Box ml={2}>
+            <Typography variant="h6">{selectedUser.name}</Typography>
+            <Typography variant="body2" color="textSecondary">Last seen 4/25/2021</Typography>
+          </Box>
         </Box>
         <Box>
           <IconButton>
@@ -75,8 +84,8 @@ const ChatArea = ({ selectedUser }) => {
             ),
           }}
         />
-        <Button variant="contained" color="primary" onClick={handleSendMessage}>
-          <SendIcon />
+        <Button variant="contained" color="primary" sx={{ml:1}} onClick={handleSendMessage}>
+          <SendIcon  />
         </Button>
       </Box>
       {showEmojiPicker && (

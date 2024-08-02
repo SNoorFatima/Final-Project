@@ -27,7 +27,70 @@ body{
     right: -15px; /* Adjust as needed */
     z-index: 0; /* Ensure it appears behind the content */
 }
-
+.second-box::after {
+  content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: rgb(21, 101, 192);
+    border-radius: 50%;
+    top: -105px; /* Adjust as needed */
+    right: -105px; /* Adjust as needed */
+    z-index: 0; /* Ensure it appears behind the content */
+}
+.second-box::before {
+  border-radius: 50%;
+  opacity: 0.5;
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgb(21, 101, 192);
+  border-radius: 50%;
+  top: -125px; /* Adjust as needed */
+  right: -15px; /* Adjust as needed */
+  z-index: 0; /* Ensure it appears behind the content */
+}
+.third-box::before{
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(140.9deg, rgb(144, 202, 249) -14.02%, rgba(144, 202, 249, 0) 77.58%);
+    border-radius: 50%;
+    top: -160px;
+    right: -130px;
+}
+.third-box::after{
+  content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(210.04deg, rgb(144, 202, 249) -50.94%, rgba(144, 202, 249, 0) 83.49%);
+    border-radius: 50%;
+    top: -30px;
+    right: -180px;
+}
+.fourth-box::before{
+  content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(140.9deg, rgb(255, 193, 7) -14.02%, rgba(144, 202, 249, 0) 70.5%);
+    border-radius: 50%;
+    top: -160px;
+    right: -130px;
+}
+.fourth-box::after{
+  content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(210.04deg, rgb(255, 193, 7) -50.94%, rgba(144, 202, 249, 0) 83.49%);
+    border-radius: 50%;
+    top: -30px;
+    right: -180px;
+}
 .linechart .apexcharts-xaxis-texts-g{
     display: none;
 }

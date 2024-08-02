@@ -166,8 +166,8 @@ const Charts = () => {
   };
 
   return (
-    <Grid container spacing={2} direction={'row'}>
-      <Grid item> 
+    <Grid container spacing={2} >
+      <Grid item xs={12}  lg={8}> 
         <Paper>
           <CardContent>
             <Grid container spacing={2}>
@@ -226,7 +226,7 @@ const Charts = () => {
           </CardContent>
         </Paper>
       </Grid>
-      <Grid item>
+      <Grid item xs={12}  lg={4}>
         <Paper >
           <CardContent>
             <Grid container direction={'column'}>

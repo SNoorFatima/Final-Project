@@ -21,7 +21,7 @@ const CustomerSatisfactionChart = () => {
         <Typography variant="h6" fontSize={'14px'} gutterBottom>
           Customer Satisfaction
         </Typography>
-        <Chart options={options} series={series} type="pie" height={350} />
+        <Chart options={options} series={series} type="pie" height={270} />
       </CardContent>
     </Card>
   );

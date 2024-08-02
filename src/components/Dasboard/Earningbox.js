@@ -1,13 +1,13 @@
 import MoreHorizOutlinedIcon from "@mui/icons-material/MoreHorizOutlined";
 import { IconSquares } from "@tabler/icons-react";
-import { Avatar, Box, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Grid, Paper, Typography } from "@mui/material";
 import { ArrowUpwardOutlined } from "@mui/icons-material";
 import OrderBox from "./orderbox";
 
 const EarningBox = () => {
   return (
     // Ensure the Box is wrapped in a Grid item with a wider span
-   
+   <Paper>
         <Box className = "first-box"
           sx={{
             backgroundColor: "#5e35b1",
@@ -93,7 +93,7 @@ const EarningBox = () => {
             </Grid>
           </Grid>
         </Box>
-     
+        </Paper>
   
   );
 };

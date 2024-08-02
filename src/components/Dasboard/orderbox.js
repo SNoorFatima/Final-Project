@@ -49,7 +49,7 @@ const OrderBox = () => {
   };
 
   return (
-    <Box
+    <Box className = "second-box"
       sx={{
         backgroundColor: "rgb(30, 136, 229)",
         borderRadius: "8px",
@@ -89,6 +89,7 @@ const OrderBox = () => {
                     currentPeriod === "month" ? "#2196F3" : "inherit",
                   color: "white",
                   textTransform: "none",
+                  zIndex:2
                 }}
                 onClick={() => setCurrentPeriod("month")}
               >
@@ -102,6 +103,7 @@ const OrderBox = () => {
                     currentPeriod === "year" ? "#2196F3" : "inherit",
                   color: "white",
                   textTransform: "none",
+                  zIndex:2
                 }}
                 onClick={() => setCurrentPeriod("year")}
               >
