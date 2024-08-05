@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from 'react';
 import {
   Drawer,
   List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Collapse,
   Typography,
   Divider,
-  Chip,
   Avatar,
   Box,
-} from "@mui/material";
-import { ExpandLess, ExpandMore } from "@mui/icons-material";
-import { useSidebar } from "../SidebarContext"; // Assuming you have a context for sidebar state
-
+  Chip,
+} from '@mui/material';
+import { useSidebar } from '../SidebarContext'; // Assuming you have a context for sidebar state
+import SidebarItem from './Sidebaritem'; 
 // Import your icons from Tabler or other sources
 import {
   IconDashboard,
@@ -53,7 +48,7 @@ import {
   IconMap,
   IconMenu,
   IconBoxMultiple,
-  IconCircleOff,
+  IconCircleOff, 
   IconCircle,
   IconBrandGravatar,
   IconShape,
@@ -65,8 +60,8 @@ const sidebarData = [
   {
     section: "Dashboard",
     items: [
-      { title: "Default",path:"", icon: <IconDashboard />  },
-      { title: "Analytics", icon: <IconDeviceAnalytics /> },
+      { title: "Default", path: "/dashboard", icon: <IconDashboard /> },
+      { title: "Analytics",path:"/Analytics", icon: <IconDeviceAnalytics /> },
     ],
   },
   {
@@ -323,45 +318,6 @@ const sidebarData = [
 
 const Sidebar = () => {
   const { isOpen } = useSidebar(); 
-  const [open, setOpen] = useState({});
-
-  const handleClick = (item) => {
-    setOpen((prevOpen) => ({ ...prevOpen, [item]: !prevOpen[item] }));
-  };
-
-  const renderListItem = (item, depth = 0) => {
-    const { title, icon, items } = item;
-
-    return (
-      <React.Fragment key={title}>
-        <ListItem
-          onClick={() => handleClick(title)}
-          sx={{ padding:'10px 16px 10px 24px',mb:'4px' }}
-        >
-          <ListItemIcon sx={{ width: '20px',height:'20px' }}>{icon}</ListItemIcon>
-          <ListItemText primaryTypographyProps={{ fontSize: '14px' }} primary={title} />
-          {Array.isArray(items) &&
-            items.length > 0 &&
-            (open[title] ? <ExpandLess /> : <ExpandMore />)}
-        </ListItem>
-        {Array.isArray(items) && items.length > 0 && (
-          <Collapse in={open[title]} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              {items.map((subItem) =>
-                typeof subItem === "string" ? (
-                  <ListItem key={subItem}  sx={{ pl: (depth + 1) * 4 }}>
-                    <ListItemText primary={subItem} />
-                  </ListItem>
-                ) : (
-                  renderListItem(subItem, depth + 1)
-                )
-              )}
-            </List>
-          </Collapse>
-        )}
-      </React.Fragment>
-    );
-  };
 
   return (
     <Drawer
@@ -371,51 +327,49 @@ const Sidebar = () => {
       sx={{
         width: 240,
         flexShrink: 0,
-        "& .MuiDrawer-paper": {
+        '& .MuiDrawer-paper': {
           width: 270,
-          boxSizing: "border-box",
-          top: "96px",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
-          position: "fixed",
-          zindex:"0",
+          boxSizing: 'border-box',
+          top: '96px',
+          paddingLeft: '1rem',
+          paddingRight: '1rem',
+          position: 'fixed',
+          zindex: '0',
           // Apply custom scrollbar styles here
-          scrollbarWidth: "thin", // For Firefox
-          "&::-webkit-scrollbar": {
-            width: "5px",
-            height: "100px",
+          scrollbarWidth: 'thin', // For Firefox
+          '&::-webkit-scrollbar': {
+            width: '5px',
+            height: '100px',
           },
-          "&::-webkit-scrollbar-thumb": {
-
-            borderRadius: "5px",
+          '&::-webkit-scrollbar-thumb': {
+            borderRadius: '5px',
           },
-          "&::-webkit-scrollbar-thumb-y": {
+          '&::-webkit-scrollbar-thumb-y': {
             backgroundColor: '#697586',
             borderRadius: '6px',
             width: '5px',
           },
-          "&::-webkit-scrollbar-track": {
-
-          },
+          '&::-webkit-scrollbar-track': {},
         },
-
       }}
     >
       <List>
         {sidebarData.map((section) => (
           <React.Fragment key={section.section}>
-            <Typography variant="subtitle1" sx={{ padding: "6px", margin: "10px 0px 4.9px" }}>
+            <Typography variant="subtitle1" sx={{ padding: '6px', margin: '10px 0px 4.9px' }}>
               {section.section}
             </Typography>
-            {section.items.map((item) => renderListItem(item))}
+            {section.items.map((item, index) => (
+              <SidebarItem key={index} item={item} />
+            ))}
             <Divider />
           </React.Fragment>
         ))}
-        <Box sx={{backgroundColor:"#d2eafc"}}>
+        <Box sx={{ backgroundColor: '#d2eafc' }}>
           <ul>
-          <Avatar sx={{ bgcolor: "white" }} variant="square">
-  N
-</Avatar>
+            <Avatar sx={{ bgcolor: 'white' }} variant='square'>
+              N
+            </Avatar>
           </ul>
         </Box>
       </List>

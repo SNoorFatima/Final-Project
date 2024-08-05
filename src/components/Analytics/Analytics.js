@@ -8,7 +8,7 @@ import DashboardBoxes from './InfoGrid'
 import TotalRevenue from './TotalRevenue'
 import Dailyusers from './Dailyusers'
 import Dailypageview from './Dailypageview'
-
+ 
 const Analytics = () => {
   return (
     

@@ -162,3 +162,7 @@ a:hover {
     border-radius: 3px;
 
   } */
+.dialog:hover {
+  background-color: rgb(237, 231, 246);
+  color: rgb(94, 53, 177);
+}

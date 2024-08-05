@@ -9,7 +9,7 @@ import Totalicomebox2 from "./Totalicomebox2";
 
 const Dashboard = () => {
   return (
-    <Container maxWidth="lg">
+   
       <Grid container spacing={3} direction={"column"}>
         <Grid item>
           <Grid container spacing={3}>
@@ -36,7 +36,7 @@ const Dashboard = () => {
         </Grid>
 
       </Grid>
-    </Container>
+    
   );
 };
 export default Dashboard;
