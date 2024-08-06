@@ -13,9 +13,12 @@ import {
 } from '@mui/material';
 
 import { Link } from 'react-router-dom';
+import Navigation from './Navigation';
 
 const ChangePassword = () => {
   return (
+    <>
+    <Navigation/>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper>
@@ -59,6 +62,7 @@ const ChangePassword = () => {
         </Paper>
       </Grid>
     </Grid>
+    </>
   );
 };
 

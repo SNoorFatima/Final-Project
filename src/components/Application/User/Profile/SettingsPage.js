@@ -11,9 +11,12 @@ import {
   Button,
   Box
 } from '@mui/material';
+import Navigation from './Navigation';
 
 const SettingsPage = () => {
   return (
+    <>
+    <Navigation/>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper elevation={3} sx={{ padding: 3 }}>
@@ -153,6 +156,7 @@ const SettingsPage = () => {
         </Paper>
       </Grid>
     </Grid>
+    </>
   );
 };
 

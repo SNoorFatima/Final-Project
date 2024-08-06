@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Card,
   CardContent,
   Avatar,
   Box,
@@ -17,12 +16,12 @@ import avater from "./Assets/avater.png";
 
 const User = () => {
   const location = useLocation();
-  const currentTab = location.pathname.split("/")[1] || "profile";
+  const currentTab = location.pathname.split("/")[2] || "profile";
 
   return (
     <Grid container direction={"column"}>
       <Grid item md={4} sm={6} xs={12}>
-        <Paper>
+        <Paper className="user-profile-card">
           <CardContent sx={{ padding: "12px 12px 0 12px !important" }}>
             <Box>
               <img
@@ -86,31 +85,31 @@ const User = () => {
                     <Tab
                       label="Profile"
                       component={Link}
-                      to="/Profilepage"
-                      value="profile"
+                      to="/user/Profilepage"
+                      value="Profilepage"
                     />
                     <Tab
                       label="Followers"
                       component={Link}
-                      to="/followers"
+                      to="/user/followers"
                       value="followers"
                     />
                     <Tab
                       label="Friends"
                       component={Link}
-                      to="/friends"
+                      to="/user/friends"
                       value="friends"
                     />
                     <Tab
                       label="Gallery"
                       component={Link}
-                      to="/gallery"
+                      to="/user/gallery"
                       value="gallery"
                     />
                     <Tab
                       label="Friend Requests"
                       component={Link}
-                      to="/friend-requests"
+                      to="/user/friend-requests"
                       value="friend-requests"
                     />
                   </Tabs>

@@ -12,7 +12,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Navigation = () => {
@@ -20,22 +20,30 @@ const Navigation = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [activeTab, setActiveTab] = useState('/');
+  const location = useLocation(); // Get current route
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
+  const handleMenuClose = (path) => {
     setAnchorEl(null);
+    setActiveTab(path);
   };
 
   const menuItems = [
-    { label: 'Profile', to: '/Profilestyle' },
-    { label: 'Personal Details', to: '/Personaldetails' },
-    { label: 'My Account', to: '/AccountSettings' },
-    { label: 'Change Password', to: '/ChangePassword' },
-    { label: 'Settings', to: '/SettingsPage' },
+    { label: 'Profile', to: '/navigation/ProfileStyle' },
+    { label: 'Personal Details', to: '/navigation/Personaldetails' },
+    { label: 'My Account', to: '/navigation/AccountSettings' },
+    { label: 'Change Password', to: '/navigation/ChangePassword' },
+    { label: 'Settings', to: '/navigation/SettingsPage' },
   ];
+
+  // Update activeTab based on the current location
+  React.useEffect(() => {
+    setActiveTab(location.pathname);
+  }, [location.pathname]);
 
   return (
     <>
@@ -50,19 +58,20 @@ const Navigation = () => {
                   aria-label="menu"
                   onClick={handleMenuOpen}
                 >
-                  <MenuIcon  sx={{color:"#121961"}}/>
+                  <MenuIcon sx={{ color: "#121961" }} />
                 </IconButton>
                 <Menu
                   anchorEl={anchorEl}
                   open={Boolean(anchorEl)}
-                  onClose={handleMenuClose}
+                  onClose={() => handleMenuClose('/')}
                 >
                   {menuItems.map((item) => (
                     <MenuItem
                       key={item.label}
                       component={Link}
                       to={item.to}
-                      onClick={handleMenuClose}
+                      selected={activeTab === item.to} // Highlight active item
+                      onClick={() => handleMenuClose(item.to)}
                     >
                       {item.label}
                     </MenuItem>
@@ -70,13 +79,18 @@ const Navigation = () => {
                 </Menu>
               </>
             ) : (
-              <Tabs value={false} textColor="inherit">
+              <Tabs
+                value={activeTab}
+                textColor="inherit"
+                onChange={(event, newValue) => setActiveTab(newValue)}
+              >
                 {menuItems.map((item) => (
                   <Tab
                     key={item.label}
                     label={item.label}
                     component={Link}
                     to={item.to}
+                    value={item.to}
                     sx={{ color: 'rgb(18, 25, 38)' }}
                   />
                 ))}

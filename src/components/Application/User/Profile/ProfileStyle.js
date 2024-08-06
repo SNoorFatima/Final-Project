@@ -10,9 +10,13 @@ import {
 } from "@mui/material";
 import avater from "../Assets/avater.png";
 import { MailTwoTone, PhonelinkRingTwoTone, PinDropTwoTone } from "@mui/icons-material";
+import Navigation from "./Navigation";
 
 const ProfileStyle = () => {
   return (
+    <>
+    <Navigation/>
+    <Paper sx={{p:2}}>
     <Grid container spacing={3} padding={3}>
       <Grid item xs={12} md={4}>
         <Paper>
@@ -219,6 +223,8 @@ const ProfileStyle = () => {
         </Paper>
       </Grid>
     </Grid>
+    </Paper>
+    </>
   );
 };
 

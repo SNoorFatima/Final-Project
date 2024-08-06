@@ -1,4 +1,4 @@
-import { Grid, Stack, Paper, Typography, Button, Box } from "@mui/material";
+import { Grid, Stack, Paper, Typography, Button, Box, Card, CardHeader, Divider, Breadcrumbs } from "@mui/material";
 import React from "react";
 import Revenuecard from "../Analytics/Revenuecard";
 import Orderscard from "../Analytics/Orderscard";
@@ -18,6 +18,7 @@ import {
   PanToolTwoTone,
   RadioButtonCheckedTwoTone,
   RemoveRedEyeTwoTone,
+  Home,
 } from "@mui/icons-material";
 import { CardContent } from "@mui/material";
 import TotalSales from "./Totalsales";
@@ -31,8 +32,40 @@ import LastmonthVisitors from "./LastmonthVisitor";
 import CustomerSatisfaction from "./customersatisfaction";
 import DashboardBoxes from "../Analytics/InfoGrid";
 import Weatherbox from "./Weatherbox";
+import { Link } from "react-router-dom";
 const Statistics = () => {
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+    <>
+      <Paper >
+        <Grid container p={2} display="flex" justifyContent={'space-between'}>
+          <Grid item>
+          <Typography variant="h6" sx={{ marginRight: '1rem' }}>Statistics</Typography>
+          </Grid>
+          <Grid item>
+          <Breadcrumbs separator="›">
+            <Link underline="hover" color="inherit" href="/">
+              <Home sx={{
+                marginRight: '0px',
+                marginTop: '-2px',
+                width: '1rem',
+                height: '1rem',
+                color: 'rgb(103, 58, 183)'
+              }} />
+            </Link>
+            <Link underline="hover" color="rgb(18, 25, 38)" >
+              Basic
+            </Link>
+            
+            <Typography color="rgb(105, 117, 134)">Statistics</Typography>
+          </Breadcrumbs>
+          </Grid>
+        </Grid>
+      </Paper>
+    </>
+    </Grid>
+    <Grid item>
     <Grid container spacing={3}>
       <Grid item lg={3} xs={12} md={6} >
         <Paper>
@@ -955,7 +988,8 @@ const Statistics = () => {
       <Weatherbox/>
       </Grid>
     </Grid>
-
+    </Grid>
+    </Grid>
   );
 };
 

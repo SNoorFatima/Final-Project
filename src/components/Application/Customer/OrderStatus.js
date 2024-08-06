@@ -1,9 +1,12 @@
 import React from 'react';
 import { Box, Typography, Grid, Paper, TextField, Button } from '@mui/material';
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
+import Navidation_orders from './Navidation_orders';
 
 const OrderStatus = () => {
   return (
+    <>
+    <Navidation_orders/>
     <Box p={3}>
       <Paper sx={{ padding: 3, border: "1px solid rgb(227, 232, 239)", boxShadow: "none" }}>
         <Typography variant="h6" gutterBottom>ORDER STATUS</Typography>
@@ -104,6 +107,7 @@ const OrderStatus = () => {
         </Box>
       </Paper>
     </Box>
+    </>
   );
 };
 

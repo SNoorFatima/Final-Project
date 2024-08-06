@@ -3,6 +3,7 @@ import { Box, Typography, Grid, Paper, Table, TableBody, TableCell, TableHead, T
 import DeleteIcon from '@mui/icons-material/Delete';
 import { CalendarToday, CalendarTodayTwoTone, Email, EmailTwoTone, PhoneAndroidTwoTone } from '@mui/icons-material';
 import { borderColor, Stack } from '@mui/system';
+import Navidation_orders from './Navidation_orders';
 
 const OrderDetails = () => {
   const products = [
@@ -13,6 +14,8 @@ const OrderDetails = () => {
   ];
 
   return (
+    <>
+    <Navidation_orders/>
     <Box p={3} sx={{padding:3}}>
       <Paper sx={{padding:3, border:"1px solid rgb(227, 232, 239)",boxShadow:"none"}} >
         <Typography variant="h6" gutterBottom>Customer</Typography>
@@ -112,6 +115,7 @@ const OrderDetails = () => {
         </Box>
         </Paper>
       </Box>
+      </>
    
   );
 };

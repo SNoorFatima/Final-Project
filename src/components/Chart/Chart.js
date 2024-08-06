@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Breadcrumbs, Grid, Paper, Typography } from '@mui/material'
 import React from 'react'
 import TotalSalesCard from './TotalSales'
 import TotalComments from './Totalcomments'
@@ -20,9 +20,39 @@ import VisitsChart from './Visitchart'
 import ProductsChart from './Productchart'
 import StockBarChart from './newstocks'
 import CustomerSatisfactionChart from './customersatistaction'
+import { Link } from 'react-router-dom'
+import { Home } from '@mui/icons-material'
 
 const Chart = () => {
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Chart</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+        
+         <Typography color="rgb(105, 117, 134)">Chart</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item>
     <Grid container spacing={3}>
         <Grid item xs={12} sm={6} lg={3}>
             <TotalSalesCard/>
@@ -86,6 +116,8 @@ const Chart = () => {
         </Grid>
         
       
+    </Grid>
+    </Grid>
     </Grid>
   )
 }

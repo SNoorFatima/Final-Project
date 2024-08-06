@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography, Grid, Paper, Table, TableBody, TableCell, TableHead, TableRow, IconButton, Divider } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Stack } from '@mui/system';
+import Navidation_orders from './Navidation_orders';
 
 const products = [
   { id: 1, productName: 'Logo Design', category: 'Design', price: 200, date: '12 Jun', qty: 6 },
@@ -18,6 +19,8 @@ const products = [
 
 const OrderInvoice = () => {
   return (
+    <>
+    <Navidation_orders/>
     <Box p={3}>
       <Paper sx={{ padding: 3, border: "1px solid rgb(227, 232, 239)", boxShadow: "none" }}>
         <Typography variant="h5" gutterBottom>Invoice #125863478945</Typography>
@@ -92,6 +95,7 @@ const OrderInvoice = () => {
         </Paper>
       </Paper>
     </Box>
+    </>
   );
 };
 

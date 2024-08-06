@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Drawer,
   List,
@@ -7,9 +7,9 @@ import {
   Avatar,
   Box,
   Chip,
-} from '@mui/material';
-import { useSidebar } from '../SidebarContext'; // Assuming you have a context for sidebar state
-import SidebarItem from './Sidebaritem'; 
+} from "@mui/material";
+import { useSidebar } from "../SidebarContext"; // Assuming you have a context for sidebar state
+import SidebarItem from "./Sidebaritem";
 // Import your icons from Tabler or other sources
 import {
   IconDashboard,
@@ -48,28 +48,31 @@ import {
   IconMap,
   IconMenu,
   IconBoxMultiple,
-  IconCircleOff, 
+  IconCircleOff,
   IconCircle,
   IconBrandGravatar,
   IconShape,
   IconHelp,
   IconSitemap,
+  IconLayoutKanban,
+  IconCalendar,
 } from "@tabler/icons-react";
+import StorageCard from "./storagecard";
 
 const sidebarData = [
   {
     section: "Dashboard",
     items: [
       { title: "Default", path: "/dashboard", icon: <IconDashboard /> },
-      { title: "Analytics",path:"/Analytics", icon: <IconDeviceAnalytics /> },
+      { title: "Analytics", path: "/Analytics", icon: <IconDeviceAnalytics /> },
     ],
   },
   {
     section: "Widget",
     items: [
-      { title: "Statistics", icon: <IconChartArcs /> },
-      { title: "Data", icon: <IconClipboardList /> },
-      { title: "Chart", icon: <IconChartInfographic /> },
+      { title: "Statistics", path: "/Statistics", icon: <IconChartArcs /> },
+      { title: "Data", path: "/Data", icon: <IconClipboardList /> },
+      { title: "Chart", path: "/Chart", icon: <IconChartInfographic /> },
     ],
   },
   {
@@ -79,125 +82,28 @@ const sidebarData = [
         title: "Users",
         icon: <IconUserCheck />,
         items: [
-          { title: "Social Profile" },
-          {
-            title: "Account Profile",
-            items: ["Profile 01", "Profile 02", "Profile 03"],
-          },
-          { title: "Cards", items: ["Style 01", "Style 02", "Style 03"] },
-          { title: "List", items: ["Style 01", "Style 02"] },
+          { title: "Social Profile", path: "/user" },
+          { title: "Account Profile", path: "/navigation" },
+          { title: "Cards", path: "/Cards" },
+          { title: "List", path: "/Lists" },
         ],
       },
       {
         title: "Customers",
         icon: <IconBasket />,
         items: [
-          "Customer list",
-          "Order list",
-          "Create Invoice",
-          "Order details",
-          "Product",
-          "Product Review",
+          { title: "Customer List", path: "/CustomersList" },
+          { title: "Order List", path: "/OrdersList" },
+          { title: "Create Invoice", path: "/Invoice" },
+          { title: "Order Details", path: "/ordernavigation" },
+          { title: "Product", path: "/ProductList" },
+          { title: "Product Review", path: "/ProductReview" },
         ],
       },
-      { title: "Chats", icon: <IconMessages /> },
-      // { title: "Kanban", icon: <IconLayoutKanban /> },
-      { title: "Mail", icon: <IconMail /> },
-      // { title: "Calender", icon: <IconCalendar /> },
-      { title: "Contact", icon: <IconNfc />, items: ["Cards", "List"] },
-      {
-        title: "Ecommerce",
-        icon: <IconBasket />,
-        items: ["Products", "Product Details", "Product List", "Checkout"],
-      },
-    ],
-  },
-  {
-    section: "Forms",
-    items: [
-      {
-        title: "Components",
-        icon: <IconPictureInPicture />,
-        items: [
-          "Autocomplete",
-          "Buttons",
-          "Cards",
-          "Checkbox",
-          "Date/Time",
-          "Radio",
-          "Slider",
-          "Switch",
-          "Textfield",
-        ],
-      },
-      {
-        title: "Plugins",
-        icon: <IconForms />,
-        items: [
-          "Autocomplete",
-          "Mask",
-          "Clipboard",
-          "Recaptcha",
-          "Wysiwug Editor",
-          "Modal",
-          "Tooltip",
-          "Dropzone"
-        ],
-      },
-      {
-        title: "Layout",
-        icon: <IconBorderAll />,
-        items: [
-          "Layouts",
-          "Multi coulmn forms",
-          "Action Bar",
-          "Sticky Action Bar"
-        ],
-      },
-      {
-        title: "Table",
-        icon: <IconTable />,
-        items: [
-          "Basic Table",
-          "Dense Table",
-          "Enhanced Table",
-          "Data Table",
-          "Custom Table",
-          "Fixed Header",
-          "Collapsed Table"
-        ],
-      },
-      {
-        title: "DataGrid",
-        icon: <IconTable />,
-        items: [
-          "Basic",
-          "Inline Editing",
-          "Coulmn groups",
-          "Save & Restore",
-          "Quick Filter",
-          "Coulmn Visibility",
-          "Column Virtualization",
-          "Coulmn Menu"
-        ],
-      },
-      {
-        title: "Charts",
-        icon: <IconTable />,
-        items: ["Apexchart", "Organization Chart"],
-      },
-      {
-        title: "Maps",
-        icon: <IconMapPin/>,
-      },
-    {
-      title: "Form Validation",
-      icon: <IconClipboardCheck/>
-    },
-    {
-      title:"Forms Wizard",
-      icon: <IconStairsUp/>
-    }
+      { title: "Chats", path: "/ChatBox", icon: <IconMessages /> },
+      { title: "Kanban", path: "/KanbanBoard", icon: <IconLayoutKanban /> },
+      { title: "Mail", path: "/MailSystem", icon: <IconMail /> },
+      { title: "Calendar", path: "/EventCalendar", icon: <IconCalendar /> },
     ],
   },
   {
@@ -207,30 +113,30 @@ const sidebarData = [
         title: "Basic",
         icon: <IconBrush />,
         items: [
-          "Accordion",
-          "Avater",
-          "Badges",
-          "Breadcrumb",
-          "Cards",
-          "Chip",
-          "List",
-          "Tabs"
+          { title: "Accordion", path: "/AccordionsPlayground" },
+          { title: "Avatar", path: "/AvatarPlayground" },
+          { title: "Badges", path: "/BadgePlayground" },
+          { title: "Breadcrumb", path: "/BreadcrumbsPlayground" },
+          { title: "Cards", path: "" },
+          { title: "Chip", path: "/ChipPlayground" },
+          { title: "List", path: "/ListPlayground" },
+          { title: "Tabs", path: "/TabsPlayground" },
         ],
       },
       {
         title: "Advance",
         icon: <IconTools />,
         items: [
-          "Alert",
-          "Dialog",
-          "Pagination",
-          "Progress",
-          "Rating",
-          "Snackbar",
-          "Skeleton",
-          "Timeline",
-          "Toggle Button",
-          "Treeview"
+          { title: "Alert", path: "/AlertsPlayground" },
+          { title: "Dialog", path: "/DialogsExample" },
+          { title: "Pagination", path: "/PaginationPlayground" },
+          { title: "Progress", path: "/ProgressPlayground" },
+          { title: "Rating", path: "/RatingPlayground" },
+          { title: "Snackbar", path: "/SnackbarPlayground" },
+          { title: "Skeleton", path: "/SkeletonPlayground" },
+          { title: "Timeline", path: "/TimelinePlayground" },
+          { title: "Toggle Button", path: "/TogglePlayground" },
+          { title: "Treeview", path: "/TreeViewPlayground" },
         ],
       },
     ],
@@ -241,83 +147,138 @@ const sidebarData = [
       {
         title: "Authentication",
         icon: <IconKey />,
-        items: ["Authentication1", "Authentication2", "Authentication3"],
+        items: [
+          { title: "Login", path: "/LoginPage" },
+          { title: "Register", path: "/SignupPage" },
+          { title: "Forget Password", path: "/ForgotPasswordPage" },
+          { title: "Check Mail", path: "/CheckMail" },
+          { title: "Reset Password", path: "/ResetPasswordPage" },
+          { title: "Code Verification", path: "/VerificationCodePage" },
+        ],
       },
-      { title: "Pricing", icon: <IconReceipt2 /> },
-      { title: "Maintenance", icon: <IconBug /> },
-      { title: "Landing", icon: <IconBellRinging /> },
-      { title: "Contact US", icon: <IconPhoneCall /> },
-      { title: "FAQs", icon: <IconQuestionMark /> },
-      { title: "Privacy Policy", icon: <IconShieldLock /> },
+      { title: "Pricing", icon: <IconReceipt2 />, path: "/PricingCard" },
+      {
+        title: "Maintenance",
+        icon: <IconBug />,
+        path: "https://berrydashboard.io/pages/error",
+        newTab: true,
+      },
+      {
+        title: "Landing",
+        icon: <IconBellRinging />,
+        path: "https://berrydashboard.io/pages/landing",
+        newTab: true,
+      },
+      {
+        title: "Contact US",
+        icon: <IconPhoneCall />,
+        path: "https://berrydashboard.io/pages/contact-us",
+        newTab: true,
+      },
+      {
+        title: "FAQs",
+        icon: <IconQuestionMark />,
+        path: "https://berrydashboard.io/pages/faqs",
+        newTab: true,
+      },
+      {
+        title: "Privacy Policy",
+        icon: <IconShieldLock />,
+        path: "https://berrydashboard.io/pages/privacy-policy",
+        newTab: true,
+      },
     ],
-  },
-  {
-    items:[
-      { title: "Sample Pages", icon: <IconBrandChrome /> },
-    ]
   },
   {
     section: "Utilities",
     items: [
-      { title: "Typography", icon: <IconTypography /> },
-      { title: "Color", icon: <IconPalette /> },
-      { title: "Shadow", icon: <IconShadow /> },
+      {
+        title: "Typography",
+        icon: <IconTypography />,
+        path: "/TypographyShowcase",
+      },
+      { title: "Color", icon: <IconPalette />, path: "/ColorPalette" },
+      { title: "Shadow", icon: <IconShadow />, path: "/ShadowDisplay" },
       {
         title: "Icons",
         icon: <IconWindmill />,
-        items: ["Tabler Icons", "Material Icons"],
+        items: [
+          {
+            title: "Tabler Icons",
+            path: "https://tabler.io/icons",
+            newTab: true,
+          },
+          {
+            title: "Material Icons",
+            path: "https://mui.com/material-ui/material-icons/#main-content",
+            newTab: true,
+          },
+        ],
       },
-      { title: "Animation", icon: <IconBrandFramer /> },
-      { title: "Grid", icon: <IconLayoutGridAdd /> },
+      {
+        title: "Animation",
+        icon: <IconBrandFramer />,
+        path: "/AnimationPlayground",
+      },
+      { title: "Grid", icon: <IconLayoutGridAdd />, path: "/GridDisplay" },
     ],
   },
   {
     section: "Others",
     items: [
-      { title: "Menu Levels", icon: <IconMenu /> },
-      { title: "Sub Caption Levels", icon: <IconBoxMultiple />, subtitle: "Caption Collapse" },
+      {
+        title: "Menu Levels",
+        icon: <IconMenu />,
+        items: [
+          {
+            title: "Level 1",
+            items: [
+              { title: "Level 2" },
+              { title: "Level 2.1" },
+            ],
+          },
+          {
+            title: "Level 2",
+          }
+
+        ],
+      },
+      {
+        title: "Sub Caption Levels",
+        icon: <IconBoxMultiple />,
+        subtitle: "Caption Collapse",
+      },
       { title: "Disabled Menu", icon: <IconCircleOff /> },
-      { 
-        title: "Oval Chip", 
-        icon: <IconCircle />, 
-        action: <Chip color="primary" sx={{ height: '32px', width: '32px' }} label="9" /> 
+      {
+        title: "Oval Chip",
+        icon: <IconCircle />,
+        action: (
+          <Chip
+            color="primary"
+            sx={{ height: "32px", width: "32px" }}
+            label="9"
+          />
+        ),
       },
-      { 
-        title: "Avatar", 
-        icon: <IconBrandGravatar />, 
-        action: <Chip avatar={<Avatar>c</Avatar>} label="Coded" sx={{ ml: '60px' }} /> 
+      {
+        title: "Avatar",
+        icon: <IconBrandGravatar />,
+        action: (
+          <Chip avatar={<Avatar sx={{backgroundColor:"rgb(30, 136, 229)",color:"rgb(255,255,255)"}}>c</Avatar>} label="Coded" sx={{ ml: "40px",backgroundColor:"rgb(33, 150, 243)",color:"rgb(255,255,255)" }} />
+        ),
       },
-      { title: "Outlined", icon: <IconShape /> },
+      { title: "Outlined", icon: <IconShape /> ,action: (
+        <Chip label="Outlined" sx={{ ml: "30px",border:"1px solid rgba(33, 150, 243, 0.7)",backgroundColor:"transparent",    color: "rgb(33, 150, 243)" }} />
+      ) },
       <Divider />,
-      { title: "Documentation", icon: <IconHelp /> },
-      { title: "Roadmap", icon: <IconSitemap /> },
+      { title: "Documentation", icon: <IconHelp />,path:"https://codedthemes.gitbook.io/berry",newTab:true },
+      { title: "Roadmap", icon: <IconSitemap />,path:"https://codedthemes.gitbook.io/berry/support/roadmap",newTab:true },
     ],
   },
-  // {
-  //   section: "Storage",
-  //   items: [
-  //     <StyledStorageSection>
-  //       <Typography variant="body2" component="div" gutterBottom>
-  //         Get Extra Space
-  //       </Typography>
-  //       <Typography variant="body2" component="div">
-  //         28/23 GB
-  //       </Typography>
-  //       <LinearProgress variant="determinate" value={80} sx={{ height: 6 }} />
-  //       <Button variant="contained" size="small" fullWidth sx={{ marginTop: 1 }}>
-  //         Upgrade
-  //       </Button>
-  //       <Typography variant="caption" sx={{ paddingLeft: 2 }}>
-  //         v3.9.0
-  //       </Typography>
-  //     </StyledStorageSection>
-  //   ],
-  // }
-  
 ];
 
 const Sidebar = () => {
-  const { isOpen } = useSidebar(); 
+  const { isOpen } = useSidebar();
 
   return (
     <Drawer
@@ -325,38 +286,41 @@ const Sidebar = () => {
       anchor="left"
       open={isOpen}
       sx={{
-        width: 240,
+        width: 270,
         flexShrink: 0,
-        '& .MuiDrawer-paper': {
+        height: "100vh",
+        "& .MuiDrawer-paper": {
           width: 270,
-          boxSizing: 'border-box',
-          top: '96px',
-          paddingLeft: '1rem',
-          paddingRight: '1rem',
-          position: 'fixed',
-          zindex: '0',
-          // Apply custom scrollbar styles here
-          scrollbarWidth: 'thin', // For Firefox
-          '&::-webkit-scrollbar': {
-            width: '5px',
-            height: '100px',
+          boxSizing: "border-box",
+          top: "96px",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+          position: "fixed",
+          zindex: "0",
+          scrollbarWidth: "thin", // For Firefox
+          "&::-webkit-scrollbar": {
+            width: "5px",
+            height: "100px",
           },
-          '&::-webkit-scrollbar-thumb': {
-            borderRadius: '5px',
+          "&::-webkit-scrollbar-thumb": {
+            borderRadius: "5px",
           },
-          '&::-webkit-scrollbar-thumb-y': {
-            backgroundColor: '#697586',
-            borderRadius: '6px',
-            width: '5px',
+          "&::-webkit-scrollbar-thumb-y": {
+            backgroundColor: "#697586",
+            borderRadius: "6px",
+            width: "5px",
           },
-          '&::-webkit-scrollbar-track': {},
+          "&::-webkit-scrollbar-track": {},
         },
       }}
     >
       <List>
         {sidebarData.map((section) => (
           <React.Fragment key={section.section}>
-            <Typography variant="subtitle1" sx={{ padding: '6px', margin: '10px 0px 4.9px' }}>
+            <Typography
+              variant="subtitle1"
+              sx={{ padding: "6px", margin: "10px 0px 4.9px" }}
+            >
               {section.section}
             </Typography>
             {section.items.map((item, index) => (
@@ -365,13 +329,9 @@ const Sidebar = () => {
             <Divider />
           </React.Fragment>
         ))}
-        <Box sx={{ backgroundColor: '#d2eafc' }}>
-          <ul>
-            <Avatar sx={{ bgcolor: 'white' }} variant='square'>
-              N
-            </Avatar>
-          </ul>
-        </Box>
+        <StorageCard/>
+        
+
       </List>
     </Drawer>
   );

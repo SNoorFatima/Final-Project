@@ -6,9 +6,9 @@ const Navidation_orders = () => {
   return (
     <AppBar position="static">
     <Tabs value={false}>
-      <Tab label="Details" component={Link} to="/OrderDetails" />
-      <Tab label="Invoice" component={Link} to="/OrderInvoice" />
-      <Tab label="Status" component={Link} to="/OrderStatus" />
+      <Tab label="Details" component={Link} to="/ordernavigation/OrderDetails" />
+      <Tab label="Invoice" component={Link} to="/ordernavigation/OrderInvoice" />
+      <Tab label="Status" component={Link} to="/ordernavigation/OrderStatus" />
     </Tabs>
   </AppBar>
   )

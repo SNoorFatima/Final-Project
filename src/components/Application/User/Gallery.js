@@ -7,6 +7,7 @@ import post3 from './Assets/post1.png';
 import post4 from './Assets/post5.png';
 import post5 from './Assets/post6.png';
 import post6 from './Assets/post4.png';
+import User from './userprofile';
 // Add more imports for other images as needed
 
 const Gallery = () => {
@@ -58,6 +59,8 @@ const Gallery = () => {
   ];
 
   return (
+    <>
+    <User/>
     <Grid container spacing={3} marginTop={'16px'}>
       {cardData.map((card, index) => (
         <Grid item key={index} xs={12} sm={6} md={4}> 
@@ -104,6 +107,7 @@ const Gallery = () => {
         </Grid>
       ))}
     </Grid>
+    </>
   );
 };
 

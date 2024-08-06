@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Breadcrumbs, Grid, Typography,Paper } from '@mui/material'
 import React from 'react'
 import ToDoList from './todo'
 import TrafficSources from './traficsourses'
@@ -18,9 +18,39 @@ import IncomingRequests from './Incomingrequest'
 import TotalRevenue from '../Analytics/TotalRevenue'
 import NewCustomers from './Newcustomers'
 import RecentTickets from './Recenttickets'
+import { Link } from 'react-router-dom'
+import { Home } from '@mui/icons-material'
 
 const Data = () => {
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Data</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+        
+         <Typography color="rgb(105, 117, 134)">Data</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item>
     <Grid container spacing={3}>
       <Grid item xs={12} md={6} lg={4}>
 <ToDoList/>
@@ -75,7 +105,9 @@ const Data = () => {
 <Grid item xs={12} md={8}>
 <RecentTickets/>
 </Grid>
-    </Grid>       
+    </Grid>     
+    </Grid>
+    </Grid>  
   )
 }
 

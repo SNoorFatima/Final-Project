@@ -9,9 +9,12 @@ import {
   Divider,
 } from "@mui/material";
 import { Facebook, Twitter, LinkedIn } from "@mui/icons-material";
+import Navigation from "./Navigation";
 
 const Personaldetails = () => {
   return (
+    <>
+    <Navigation/>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper elevation={3}>
@@ -233,6 +236,7 @@ const Personaldetails = () => {
         </Paper>
       </Grid>
     </Grid>
+    </>
   );
 };
 

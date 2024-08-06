@@ -13,6 +13,7 @@ import follower3 from './Assets/follwer3.png';
 import follower4 from './Assets/follower4.png';
 import follower5 from './Assets/follwer5.png';
 import follower6 from './Assets/follwer7.png';
+import User from "./userprofile";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -74,6 +75,8 @@ const Followers = () => {
   ];
 
   return (
+    <>
+    <User/>
     <Grid container spacing={3} mt={2}>
       <Grid item xs={12}>
         <Box>
@@ -158,6 +161,7 @@ const Followers = () => {
         </Box>
       </Grid>
     </Grid>
+    </>
   );
 };
 

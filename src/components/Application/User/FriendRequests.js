@@ -15,6 +15,7 @@ import {
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import friend1 from "./Assets/follower1.png"; // Example avatar
 import friend2 from "./Assets/follwer2.png"; // Add more avatars as needed
+import User from "./userprofile";
 
 const FriendRequestCard = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,6 +35,8 @@ const FriendRequestCard = () => {
   ];
 
   return (
+    <>
+    <User/>
     <Grid container spacing={3} marginTop={'16px'}>
       {friendRequests.map((friend, index) => (
         <Grid item key={index} xs={12} sm={6} md={4}>
@@ -86,6 +89,7 @@ const FriendRequestCard = () => {
         </Grid>
       ))}
     </Grid>
+    </>
   );
 };
 

@@ -3,9 +3,7 @@ import { Avatar, Box, Button, Card, CardContent, CardHeader, Divider, Grid, Icon
 import { styled } from '@mui/system';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchTwoTone from '@mui/icons-material/SearchTwoTone';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
-import PinDropIcon from '@mui/icons-material/PinDrop';
+
 import follower1 from '../Assets/follower1.png';
 import follower2 from '../Assets/follwer2.png';
 import follower3 from '../Assets/follwer3.png';

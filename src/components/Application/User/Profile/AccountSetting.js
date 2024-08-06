@@ -13,9 +13,12 @@ import {
   IconButton
 } from '@mui/material';
 import { DesktopWindows, TabletMac, MobileFriendly, Logout, Clear } from '@mui/icons-material';
+import Navigation from './Navigation';
 
 const AccountSettings = () => {
   return (
+    <>
+    <Navigation/>
     <Grid container spacing={3}>
       <Grid item xs={12}>
         <Paper elevation={3}>
@@ -212,6 +215,7 @@ const AccountSettings = () => {
         </Paper>
       </Grid>
     </Grid>
+    </>
   );
 };
 
