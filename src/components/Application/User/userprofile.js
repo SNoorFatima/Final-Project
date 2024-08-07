@@ -9,17 +9,22 @@ import {
   Tabs,
   Tab,
   Paper,
+  Breadcrumbs,
 } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 import coverimage from "./Assets/Coverimage.png";
 import avater from "./Assets/avater.png";
+import { Home } from "@mui/icons-material";
 
 const User = () => {
   const location = useLocation();
   const currentTab = location.pathname.split("/")[2] || "profile";
 
   return (
+    
+    <Grid item>
     <Grid container direction={"column"}>
+
       <Grid item md={4} sm={6} xs={12}>
         <Paper className="user-profile-card">
           <CardContent sx={{ padding: "12px 12px 0 12px !important" }}>
@@ -85,7 +90,7 @@ const User = () => {
                     <Tab
                       label="Profile"
                       component={Link}
-                      to="/user/Profilepage"
+                      to="/user"
                       value="Profilepage"
                     />
                     <Tab
@@ -121,6 +126,8 @@ const User = () => {
       </Grid>
       <Grid item xs={12} sm={12} md={12} lg={12}></Grid>
     </Grid>
+    </Grid>
+    
   );
 };
 

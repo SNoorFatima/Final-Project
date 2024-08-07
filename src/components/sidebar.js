@@ -1,16 +1,17 @@
 import React from "react";
 import {
   Drawer,
+  SwipeableDrawer,
   List,
   Typography,
   Divider,
   Avatar,
-  Box,
   Chip,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { useSidebar } from "../SidebarContext"; // Assuming you have a context for sidebar state
 import SidebarItem from "./Sidebaritem";
-// Import your icons from Tabler or other sources
 import {
   IconDashboard,
   IconDeviceAnalytics,
@@ -21,17 +22,10 @@ import {
   IconBasket,
   IconMail,
   IconMessages,
-  IconNfc,
-  IconTable,
-  IconForms,
-  IconPictureInPicture,
-  IconBorderAll,
-  IconMapPin,
-  IconClipboardCheck,
-  IconStairsUp,
+  IconLayoutKanban,
+  IconCalendar,
   IconBrush,
   IconTools,
-  IconBrandChrome,
   IconKey,
   IconReceipt2,
   IconBug,
@@ -45,7 +39,6 @@ import {
   IconBrandFramer,
   IconLayoutGridAdd,
   IconWindmill,
-  IconMap,
   IconMenu,
   IconBoxMultiple,
   IconCircleOff,
@@ -54,8 +47,6 @@ import {
   IconShape,
   IconHelp,
   IconSitemap,
-  IconLayoutKanban,
-  IconCalendar,
 } from "@tabler/icons-react";
 import StorageCard from "./storagecard";
 
@@ -276,64 +267,85 @@ const sidebarData = [
     ],
   },
 ];
-
 const Sidebar = () => {
-  const { isOpen } = useSidebar();
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up("lg"));
+  const { isOpen, closeSidebar, openSidebar } = useSidebar();
+
+  const drawerContent = (
+    <List>
+      {sidebarData.map((section) => (
+        <React.Fragment key={section.section}>
+          <Typography
+            variant="subtitle1"
+            sx={{ padding: "6px", margin: "10px 0px 4.9px" }}
+          >
+            {section.section}
+          </Typography>
+          {section.items.map((item, index) => (
+            <SidebarItem key={index} item={item} />
+          ))}
+          <Divider />
+        </React.Fragment>
+      ))}
+      <StorageCard />
+    </List>
+  );
 
   return (
-    <Drawer
-      variant="persistent"
-      anchor="left"
-      open={isOpen}
-      sx={{
-        width: 270,
-        flexShrink: 0,
-        height: "100vh",
-        "& .MuiDrawer-paper": {
-          width: 270,
-          boxSizing: "border-box",
-          top: "96px",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
-          position: "fixed",
-          zindex: "0",
-          scrollbarWidth: "thin", // For Firefox
-          "&::-webkit-scrollbar": {
-            width: "5px",
-            height: "100px",
-          },
-          "&::-webkit-scrollbar-thumb": {
-            borderRadius: "5px",
-          },
-          "&::-webkit-scrollbar-thumb-y": {
-            backgroundColor: "#697586",
-            borderRadius: "6px",
-            width: "5px",
-          },
-          "&::-webkit-scrollbar-track": {},
-        },
-      }}
-    >
-      <List>
-        {sidebarData.map((section) => (
-          <React.Fragment key={section.section}>
-            <Typography
-              variant="subtitle1"
-              sx={{ padding: "6px", margin: "10px 0px 4.9px" }}
-            >
-              {section.section}
-            </Typography>
-            {section.items.map((item, index) => (
-              <SidebarItem key={index} item={item} />
-            ))}
-            <Divider />
-          </React.Fragment>
-        ))}
-        <StorageCard/>
-        
-
-      </List>
-    </Drawer>
+    <>
+      {isMdUp ? (
+        <Drawer
+          variant="persistent"
+          anchor="left"
+          open={isOpen}
+          sx={{
+            width: 270,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: 270,
+              boxSizing: "border-box",
+              top: "96px",
+              paddingLeft: "1rem",
+              paddingRight: "1rem",
+              position: "fixed",
+              zIndex: 0,
+              scrollbarWidth: "thin",
+              "&::-webkit-scrollbar": {
+                width: "5px",
+                height: "100px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                borderRadius: "5px",
+              },
+              "&::-webkit-scrollbar-thumb-y": {
+                backgroundColor: "#697586",
+                borderRadius: "6px",
+                width: "5px",
+              },
+            },
+          }}
+        >
+          {drawerContent}
+        </Drawer>
+      ) : (
+        <SwipeableDrawer
+          anchor="left"
+          open={isOpen}
+          onClose={closeSidebar}
+          onOpen={openSidebar}
+          sx={{
+            "& .MuiDrawer-paper": {
+              width: 270,
+              boxSizing: "border-box",
+              elevation: 15,
+            },
+          }}
+        >
+          {drawerContent}
+        </SwipeableDrawer>
+      )}
+    </>
   );
 };
 

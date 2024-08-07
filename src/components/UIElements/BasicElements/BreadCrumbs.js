@@ -15,7 +15,8 @@ import HomeIcon from '@mui/icons-material/Home';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import { AccountTreeTwoTone, Home } from '@mui/icons-material';
 import { IconBrush } from '@tabler/icons-react';
-
+import { Stack } from '@mui/system';
+import muilogo from '../../Utilities/Assets/logoMUI.png';
 // Basic Breadcrumb Component
 const BasicBreadcrumb = () => (
   <Card>
@@ -360,6 +361,13 @@ const BreadcrumbWithTitleRight = () => (
 const BreadcrumbsPlayground = () => {
   return (
     <Paper sx={{p:3}}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography variant="h5">BreadCrumb</Typography>
+        <a href="https://mui.com/material-ui/react-breadcrumbs/" target="_blank" rel="noopener noreferrer">
+          <img src={muilogo} alt="MUI Logo" style={{ height: 40 }} />
+        </a>
+      </Stack>
+      <Divider sx={{ mb: 2 }} />
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
           <BasicBreadcrumb />

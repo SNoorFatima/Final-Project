@@ -2,6 +2,7 @@ import React from "react";
 import {
   Avatar,
   Box,
+  Breadcrumbs,
   Button,
   Card,
   CardContent,
@@ -16,6 +17,7 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import friend1 from "./Assets/follower1.png"; // Example avatar
 import friend2 from "./Assets/follwer2.png"; // Add more avatars as needed
 import User from "./userprofile";
+import { Link } from "react-router-dom";
 
 const FriendRequestCard = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -35,7 +37,28 @@ const FriendRequestCard = () => {
   ];
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Friend Request</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">Social Profile</Typography>
+         <Typography color="rgb(105, 117, 134)">Friend Request</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item>
     <User/>
     <Grid container spacing={3} marginTop={'16px'}>
       {friendRequests.map((friend, index) => (
@@ -89,7 +112,8 @@ const FriendRequestCard = () => {
         </Grid>
       ))}
     </Grid>
-    </>
+    </Grid>
+    </Grid>
   );
 };
 

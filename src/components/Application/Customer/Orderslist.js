@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {
   Box, Chip, Grid, IconButton, InputBase, Menu, MenuItem, Paper, Typography, TablePagination,
-  Table, TableBody, TableCell, TableHead, TableRow, CardHeader, Divider, Checkbox, Toolbar, Tooltip
+  Table, TableBody, TableCell, TableHead, TableRow, CardHeader, Divider, Checkbox, Toolbar, Tooltip,
+  Breadcrumbs
 } from '@mui/material';
 import { styled } from '@mui/system';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -9,7 +10,8 @@ import SearchTwoTone from '@mui/icons-material/SearchTwoTone';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { Block, ChatBubbleOutline, EditTwoTone, Visibility } from '@mui/icons-material';
+import { Block, ChatBubbleOutline, EditTwoTone, Home, Visibility } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -162,6 +164,34 @@ const OrdersList = () => {
   const paginatedOrders = filteredOrders.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Order List</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+         <Typography color="rgb(105, 117, 134)">Customers</Typography>
+         <Typography color="rgb(105, 117, 134)">Order List</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item xs={12}>
     <Grid container spacing={3} mt={2}>
       <Grid item xs={12}>
         <Box>
@@ -239,6 +269,8 @@ const OrdersList = () => {
           </Paper>
         </Box>
       </Grid>
+    </Grid>
+    </Grid>
     </Grid>
   );
 };

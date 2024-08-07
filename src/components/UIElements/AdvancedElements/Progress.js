@@ -218,8 +218,8 @@ const ProgressPlayground = () => {
   return (
     <Paper sx={{p:3}}>
 <Stack direction="row" justifyContent="space-between" alignItems="center">
-        <Typography variant="h5">Dialog</Typography>
-        <a href="https://mui.com/material-ui/react-dialog/" target="_blank" rel="noopener noreferrer">
+        <Typography variant="h5">Progress</Typography>
+        <a href="https://mui.com/material-ui/react-progress/" target="_blank" rel="noopener noreferrer">
           <img src={muilogo} alt="MUI Logo" style={{ height: 40 }} />
         </a>
       </Stack>

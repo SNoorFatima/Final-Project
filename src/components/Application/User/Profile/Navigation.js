@@ -11,6 +11,9 @@ import {
   IconButton,
   useMediaQuery,
   useTheme,
+  Grid,
+  Breadcrumbs,
+  Typography,
 } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -46,7 +49,28 @@ const Navigation = () => {
   }, [location.pathname]);
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Profile</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">User</Typography>
+         <Typography color="rgb(105, 117, 134)"> Profile</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item xs={12}>
       <Paper>
         <AppBar position="static" sx={{ backgroundColor: 'white' }}>
           <Toolbar>
@@ -100,7 +124,8 @@ const Navigation = () => {
         </AppBar>
       </Paper>
       <Divider />
-    </>
+    </Grid>
+    </Grid>
   );
 };
 

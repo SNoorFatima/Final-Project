@@ -1,4 +1,3 @@
-// src/Navbar.js
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -16,13 +15,20 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { styled } from "@mui/material/styles";
 import { Avatar, useMediaQuery, useTheme } from "@mui/material";
 import { useSidebar } from "../SidebarContext";
+import ProfileSidebar from "./Profile";
 import logo from "../logo.png";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useThemeContext } from './ThemeContext'; 
+import { margin } from "@mui/system";
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebarCall }) => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [profileSidebarOpen, setProfileSidebarOpen] = useState(false);
   const { toggleSidebar } = useSidebar();
   const theme = useTheme();
   const isMediumOrSmaller = useMediaQuery(theme.breakpoints.down("md"));
+  const { mode, toggleTheme } = useThemeContext();
 
   const Search = styled("div")(({ theme }) => ({
     display: "flex",
@@ -54,16 +60,22 @@ const Navbar = () => {
     },
   }));
 
+  const toggleSideBarHelper = () => {
+    toggleSidebarCall();
+    toggleSidebar();
+  }
+
   const iconStyles = {
     backgroundColor: "#ede7f6",
     color: "#5e35b1",
-    borderRadius: "25%", // Makes the background square
+    borderRadius: "25%",
     "&:hover": {
       backgroundColor: "#5e35b1",
       color: "#ede7f6",
     },
     height: "34px",
     width: "34px",
+    margin:'10px'
   };
 
   const handleSearchOpen = () => {
@@ -74,16 +86,24 @@ const Navbar = () => {
     setSearchOpen(false);
   };
 
+  const handleProfileSidebarOpen = () => {
+    setProfileSidebarOpen(true);
+  };
+
+  const handleProfileSidebarClose = () => {
+    setProfileSidebarOpen(false);
+  };
+
   return (
     <>
       {!searchOpen ? (
         <AppBar
-          position="fixed" top='0'
-          sx={{ backgroundColor: "white", color: "black", boxShadow: "none",zIndex:"2" }}
+          position="fixed"
+          top='0'
+          sx={{ backgroundColor: "white", color: "black", boxShadow: "none", zIndex: "2" }}
         >
           <Toolbar
             sx={{
-              // borderBottom: "1px solid #e0e0e0",
               paddingTop: "1rem",
               paddingBottom: "1rem",
             }}
@@ -111,7 +131,7 @@ const Navbar = () => {
               color="inherit"
               aria-label="menu"
               sx={iconStyles}
-              onClick={toggleSidebar}
+              onClick={toggleSideBarHelper}
             >
               <MenuIcon />
             </IconButton>
@@ -138,6 +158,13 @@ const Navbar = () => {
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
+              <IconButton
+                color="inherit"
+                sx={iconStyles}
+                onClick={toggleTheme} 
+              >
+                {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+              </IconButton>
               <Box
                 sx={{
                   height: "48px",
@@ -162,7 +189,7 @@ const Navbar = () => {
                   alt="Remy Sharp"
                   src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 />
-                <IconButton color="inherit">
+                <IconButton color="inherit" onClick={handleProfileSidebarOpen}>
                   <SettingsIcon />
                 </IconButton>
               </Box>
@@ -204,6 +231,7 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
       )}
+      {profileSidebarOpen && <ProfileSidebar onClose={handleProfileSidebarClose} />}
     </>
   );
 };

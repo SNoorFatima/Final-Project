@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
-  Avatar, Button, CardContent, Divider, Grid, IconButton, Menu, MenuItem, Paper, Typography, CardHeader, Box, InputBase, styled, alpha
+  Avatar, Button, CardContent, Divider, Grid, IconButton, Menu, MenuItem, Paper, Typography, CardHeader, Box, InputBase, styled, alpha,
+  Breadcrumbs
 } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import FavoriteIcon from '@mui/icons-material/Favorite';
@@ -17,6 +18,7 @@ import follower4 from './Assets/follower4.png';
 import follower5 from './Assets/follwer5.png';
 import follower6 from './Assets/follwer7.png';
 import User from './userprofile';
+import { Link } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -65,7 +67,28 @@ const Friends = () => {
   ];
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Friend</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">Social Profile</Typography>
+         <Typography color="rgb(105, 117, 134)">Friend</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item>
     <User/>
     <Grid container mt={'16px'}>
       <Grid item>
@@ -97,7 +120,8 @@ const Friends = () => {
         </Box>
       </Grid>
     </Grid>
-    </>
+    </Grid>
+    </Grid>
   );
 };
 

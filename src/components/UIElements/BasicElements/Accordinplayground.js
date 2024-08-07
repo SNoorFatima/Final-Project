@@ -9,8 +9,11 @@ import {
   CardHeader,
   Divider,
   Grid,
+  Paper,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { Stack } from '@mui/system';
+import muilogo from '../../Utilities/Assets/logoMUI.png';
 
 const BasicAccordion = () => (
   <Card>
@@ -145,6 +148,15 @@ const MultipleExpandedAccordion = () => (
 
 const AccordionsPlayground = () => {
   return (
+    <Paper sx={{p:3}}>
+       <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography variant="h5">Accordion</Typography>
+        <a href="https://mui.com/material-ui/react-accordion/" target="_blank" rel="noopener noreferrer">
+          <img src={muilogo} alt="MUI Logo" style={{ height: 40 }} />
+        </a>
+      </Stack>
+      <Divider sx={{ mb: 2 }} />
+
     <Grid container spacing={3}>
       <Grid item xs={12} sm={6}>
         <BasicAccordion />
@@ -162,6 +174,7 @@ const AccordionsPlayground = () => {
         <MultipleExpandedAccordion />
       </Grid>
     </Grid>
+    </Paper>
   );
 };
 

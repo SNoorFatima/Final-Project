@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Box, Button, Card, CardContent, CardHeader, Divider, Grid, IconButton, InputBase, Menu, MenuItem, Paper, Typography, TablePagination, Stack } from '@mui/material';
+import { Avatar, Box, Button, Card, CardContent, CardHeader, Divider, Grid, IconButton, InputBase, Menu, MenuItem, Paper, Typography, TablePagination, Stack, Breadcrumbs } from '@mui/material';
 import { styled } from '@mui/system';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SearchTwoTone from '@mui/icons-material/SearchTwoTone';
@@ -10,6 +10,8 @@ import follower3 from '../Assets/follwer3.png';
 import follower4 from '../Assets/follower4.png';
 import follower5 from '../Assets/follwer5.png';
 import follower6 from '../Assets/follwer7.png';
+import { Link } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -202,6 +204,34 @@ const Cards = () => {
   const paginatedFollowers = followersData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Card</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+        
+         <Typography color="rgb(105, 117, 134)">Cards</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item>
     <Grid container spacing={3} mt={2}>
       <Grid item xs={12}>
         <Box>
@@ -242,6 +272,8 @@ const Cards = () => {
           </Paper>
         </Box>
       </Grid>
+    </Grid>
+    </Grid>
     </Grid>
   );
 };

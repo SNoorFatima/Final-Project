@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, Grid, IconButton, Menu, MenuItem, Typography } from '@mui/material';
+import { Breadcrumbs, Card, CardContent, CardMedia, Grid, IconButton, Menu, MenuItem, Paper, Typography } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import post1 from './Assets/post3.jpg';
 import post2 from './Assets/post2.png';
@@ -8,6 +8,7 @@ import post4 from './Assets/post5.png';
 import post5 from './Assets/post6.png';
 import post6 from './Assets/post4.png';
 import User from './userprofile';
+import { Link } from 'react-router-dom';
 // Add more imports for other images as needed
 
 const Gallery = () => {
@@ -59,7 +60,28 @@ const Gallery = () => {
   ];
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Friend Request</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">Social Profile</Typography>
+         <Typography color="rgb(105, 117, 134)">Friend Request</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item>
     <User/>
     <Grid container spacing={3} marginTop={'16px'}>
       {cardData.map((card, index) => (
@@ -107,7 +129,8 @@ const Gallery = () => {
         </Grid>
       ))}
     </Grid>
-    </>
+    </Grid>
+    </Grid>
   );
 };
 

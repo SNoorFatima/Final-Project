@@ -1,5 +1,5 @@
-import { PinDropTwoTone, SearchTwoTone } from "@mui/icons-material";
-import { Box, CardContent, CardHeader, Divider, Grid, InputBase, Paper, styled, Typography } from "@mui/material";
+import { Home, PinDropTwoTone, SearchTwoTone } from "@mui/icons-material";
+import { Box, Breadcrumbs, CardContent, CardHeader, Divider, Grid, InputBase, Paper, styled, Typography } from "@mui/material";
 import React from "react";
 import { useState } from "react";
 import { Avatar, Button, IconButton, Menu, MenuItem } from '@mui/material';
@@ -14,6 +14,7 @@ import follower4 from './Assets/follower4.png';
 import follower5 from './Assets/follwer5.png';
 import follower6 from './Assets/follwer7.png';
 import User from "./userprofile";
+import { Link } from "react-router-dom";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -75,7 +76,28 @@ const Followers = () => {
   ];
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Followers</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">Social Profile</Typography>
+         <Typography color="rgb(105, 117, 134)">Followers</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item>
     <User/>
     <Grid container spacing={3} mt={2}>
       <Grid item xs={12}>
@@ -161,7 +183,10 @@ const Followers = () => {
         </Box>
       </Grid>
     </Grid>
-    </>
+    <Grid/>
+    </Grid>
+    </Grid>
+
   );
 };
 

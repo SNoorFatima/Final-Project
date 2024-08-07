@@ -32,6 +32,7 @@ import {
   ListItemAvatar,
   ListItemText,
   IconButton,
+  Breadcrumbs,
 } from "@mui/material";
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
@@ -39,6 +40,7 @@ import avater from "./Assets/avater.png";
 import post2 from "./Assets/post2.png"
 import post3 from "./Assets/post3.jpg"
 import User from "./userprofile";
+import { Link } from "react-router-dom";
 const Profilepage = () => {
   const [likes, setLikes] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
@@ -107,7 +109,28 @@ const Profilepage = () => {
   };
 
   return (
-    <>
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ 
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Profile</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           Home
+         </Link>
+         <Typography color="rgb(105, 117, 134)">User</Typography>
+         <Typography color="rgb(105, 117, 134)">Social Profile</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ 
+ </Grid>
+ <Grid item>
     <User/>
     <Grid container spacing={3} mt={'16px'} >
       <Grid item md={4} sm={12} xs={12} lg={4}>
@@ -1280,7 +1303,8 @@ const Profilepage = () => {
         </Grid>
       </Grid>
     </Grid>
-   </>
+   </Grid>
+   </Grid>
   );
 };
 

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Breadcrumbs, Grid, Paper, Typography } from '@mui/material';
 import { DragDropContext } from 'react-beautiful-dnd';
 import KanbanColumn from './Kanbancolumn';
 import AddTaskDialog from './AddTaskDialog';
+import { Link } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
  
 const KanbanBoard = () => {
   const [columns, setColumns] = useState({
@@ -62,6 +64,34 @@ const KanbanBoard = () => {
   };
 
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Kanban</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+        
+         <Typography color="rgb(105, 117, 134)">Kanban</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item>
     <Box sx={{ padding: 3, backgroundColor: '#f0f2f5' }}>
       <Typography variant="h4" gutterBottom>Kanban Board</Typography>
       <DragDropContext onDragEnd={handleDragEnd}>
@@ -88,6 +118,8 @@ const KanbanBoard = () => {
         handleAddTask={handleAddTask}
       />
     </Box>
+    </Grid>
+    </Grid>
   );
 };
 

@@ -1,69 +1,69 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Button, Collapse, ListItem, Typography } from '@mui/material';
+import { Box, Button, Collapse, ListItem, Chip } from '@mui/material';
 import { IconChevronDown, IconChevronRight } from '@tabler/icons-react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const SidebarItem = (props) => {
-  const { item, depth = 0 } = props;
-  const { title, icon, items, path, active, info, newTab, subtitle, action } = item;
+const SidebarItem = ({ item, depth = 0 }) => {
+  const { title, icon, items, path, info, action } = item;
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClick = () => {
-    if (newTab) {
-      window.open(path, '_blank');
-    } else {
-      navigate(path);
-    }
+  // Calculate padding based on depth
+  const paddingLeft = depth > 0 ? 32 + 8 * depth : 24;
+
+  // Determine if the current item or any of its children is active
+  const isActive = path === location.pathname;
+  const checkIfAnyChildActive = (items) =>
+    items?.some(
+      (child) =>
+        child.path === location.pathname || checkIfAnyChildActive(child.items)
+    );
+  const isParentActive = isActive || checkIfAnyChildActive(items);
+
+  const buttonStyles = {
+    justifyContent: 'flex-start',
+    pl: `${paddingLeft}px`,
+    pr: 3,
+    textAlign: 'left',
+    textTransform: 'none',
+    fontSize: '0.875rem',
+    width: '100%',
+    '&:hover': {
+      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    },
+    '& .MuiButton-startIcon': {
+      color: isParentActive ? 'secondary.main' : 'neutral.400',
+    },
   };
 
-  let paddingLeft = 24;
-  if (depth > 0) {
-    paddingLeft = 32 + 8 * depth;
-  }
-
-  // Branch
+  // Render submenu if items exist
   if (items) {
     return (
       <ListItem disableGutters sx={{ display: 'block', mb: 0.5, py: 0, px: 2 }}>
         <Button
-          endIcon={!open ? <IconChevronRight fontSize="small" /> : <IconChevronDown fontSize="small" />}
+          endIcon={
+            open ? <IconChevronDown fontSize="small" /> : <IconChevronRight fontSize="small" />
+          }
           disableRipple
           onClick={handleToggle}
           startIcon={icon}
           sx={{
-            color: active ? 'secondary.main' : '#364152',
-            justifyContent: 'flex-start',
-            pl: `${paddingLeft}px`,
-            pr: 3,
-            textAlign: 'left',
-            textTransform: 'none',
-            fontSize: '0.875rem',
-            width: '100%',
-            '&:hover': {
-              backgroundColor: 'rgba(255,255,255, 0.08)',
-            },
-            '& .MuiButton-startIcon': {
-              color: active ? 'secondary.main' : '#364152',
-            },
+            ...buttonStyles,
+            color: isParentActive ? 'secondary.main' : 'neutral.300',
+            backgroundColor: isParentActive ? '#d2eafc' : 'transparent',
             '& .MuiButton-endIcon': {
-              color: '#364152',
+              color: 'neutral.400',
             },
           }}
         >
-          <Box sx={{ flexGrow: 1 }}>
-            {title}
-            {subtitle && (
-              <Typography variant="body2" sx={{ ml: 2, color: 'text.secondary' }}>
-                {subtitle}
-              </Typography>
-            )}
-          </Box>
+          <Box sx={{ flexGrow: 1 }}>{title}</Box>
+          {action && <Box sx={{ ml: 1 }}>{action}</Box>} {/* Render action if provided */}
+          {info}
         </Button>
         <Collapse in={open} sx={{ mt: 0.5 }}>
           {items.map((subItem, index) => (
@@ -74,50 +74,39 @@ const SidebarItem = (props) => {
     );
   }
 
-  // Leaf
+  // Render leaf item
   return (
     <ListItem disableGutters sx={{ display: 'flex', mb: 0.5, py: 0, px: 2 }}>
-      <Button
-        startIcon={icon}
-        endIcon={info}
-        disableRipple
-        onClick={handleClick}
-        sx={{
-          backgroundColor: active ? 'rgba(255,255,255, 0.08)' : 'transparent',
-          borderRadius: 1,
-          color: active ? 'secondary.main' : 'neutral.300',
-          fontWeight: active ? 'fontWeightBold' : 'normal',
-          justifyContent: 'flex-start',
-          pl: `${paddingLeft}px`,
-          pr: 3,
-          textAlign: 'left',
-          textTransform: 'none',
-          fontSize: '0.875rem',
-          width: '100%',
-          '&:hover': {
-            backgroundColor: 'rgba(255,255,255, 0.08)',
-          },
-          '& .MuiButton-startIcon': {
-            color: active ? 'secondary.main' : '#364152',
-          },
-        }}
-      >
-        <Box sx={{ flexGrow: 1 }}>
-          {title}
-          {subtitle && (
-            <Typography variant="body2" sx={{ ml: 2, color: 'text.secondary' }}>
-              {subtitle}
-            </Typography>
-          )}
-        </Box>
-        {action}
-      </Button>
+      <Link to={path} style={{ textDecoration: 'none', width: '100%' }}>
+        <Button
+          startIcon={icon}
+          endIcon={info}
+          disableRipple
+          sx={{
+            ...buttonStyles,
+            backgroundColor: isActive ? '#d2eafc' : 'transparent',
+            borderRadius: 1,
+            color: isActive ? 'secondary.main' : 'neutral.300',
+            fontWeight: isActive ? 'fontWeightBold' : 'normal',
+          }}
+        >
+          <Box sx={{ flexGrow: 1 }}>{title}</Box>
+          {action && <Box sx={{ ml: 1 }}>{action}</Box>} {/* Render action if provided */}
+        </Button>
+      </Link>
     </ListItem>
   );
 };
 
 SidebarItem.propTypes = {
-  item: PropTypes.object.isRequired,
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.node.isRequired,
+    items: PropTypes.arrayOf(PropTypes.object),
+    path: PropTypes.string,
+    info: PropTypes.node,
+    action: PropTypes.node, // Add action prop
+  }).isRequired,
   depth: PropTypes.number,
 };
 

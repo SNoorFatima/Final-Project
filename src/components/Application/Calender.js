@@ -17,9 +17,13 @@ import {
   Box,
   RadioGroup,
   Radio,
+  Breadcrumbs,
+  Grid,
 } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { Link } from 'react-router-dom';
+import { Home } from '@mui/icons-material';
 
 const localizer = momentLocalizer(moment);
 
@@ -104,6 +108,34 @@ const EventCalendar = () => {
   };
 
   return (
+    <Grid container spacing={2}>
+    <Grid item xs={12}>
+ <>
+   <Paper >
+     <Grid container p={2} display="flex" justifyContent={'space-between'}>
+       <Grid item>
+       <Typography variant="h6" sx={{ marginRight: '1rem' }}>Calender</Typography>
+       </Grid>
+       <Grid item>
+       <Breadcrumbs separator="›">
+         <Link underline="hover" color="inherit" href="/">
+           <Home sx={{
+             marginRight: '0px',
+             marginTop: '-2px',
+             width: '1rem',
+             height: '1rem',
+             color: 'rgb(103, 58, 183)'
+           }} />
+         </Link>
+        
+         <Typography color="rgb(105, 117, 134)">Calender</Typography>
+       </Breadcrumbs>
+       </Grid>
+     </Grid>
+   </Paper>
+ </>
+ </Grid>
+ <Grid item xs={12}>
     <Paper sx={{ padding: 3 }} className="calendar-container">
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 2 }}>
         <Button
@@ -223,6 +255,8 @@ const EventCalendar = () => {
         </DialogActions>
       </Dialog>
     </Paper>
+    </Grid>
+    </Grid>
   );
 };
 

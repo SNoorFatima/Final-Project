@@ -1,4 +1,4 @@
-import React, { Profiler, useState } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Box } from "@mui/material";
 import Sidebar from "./components/sidebar";
@@ -67,94 +67,95 @@ import GridDisplay from "./components/Utilities/Gridplayground";
 import ColorPalette from "./components/Utilities/colorpallete";
 import ShadowDisplay from "./components/Utilities/Shadow";
 import TypographyShowcase from "./components/Utilities/Typography";
+import { ThemeContextProvider, useThemeContext } from './components/ThemeContext';
 
 const App = () => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
+  const { mode, toggleTheme } = useThemeContext();
 
   const toggleSidebar = () => {
     setSideBarOpen(prevState => !prevState);
   };
 
   return (
-    <SidebarContextProvider>
-      <Router>
-        <Box>
-          <Navbar toggleSidebarCall={toggleSidebar} />
+    <ThemeContextProvider>
+      <SidebarContextProvider>
+        <Router>
           <Box>
-            <Sidebar />
-            <div style={{ marginLeft: sideBarOpen ? "270px" : "0px", transition: "margin-left 0.3s", flexGrow: 1, padding: '16px', marginTop: '100px' }}>
-              <Routes>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/Analytics" element={<Analytics />} />
-                <Route path="/Statistics" element={<Statistics />} />
-                <Route path="/Data" element={<Data />} />
-                <Route path="/Chart" element={<Chart />} />
-                <Route path="/user/*" element={<UserRoutes />} />
-                <Route path="/navigation/*" element={<ProfileRoutes />} />
-                <Route path="/Cards" element={<Cards/>}/>
-                <Route path="/Lists" element={<Lists/>}/>
-                <Route path="/CustomersList" element={<CustomersList/>}/>
-                <Route path="/OrdersList" element={<OrdersList/>}/>
-                <Route path="/Invoice" element={<Invoice/>}/>
-                <Route path="/ordernavigation/*" element={<OrderRoutes/>}/>
-                <Route path="/ProductList" element={<ProductList/>}/>
-                <Route path="/ProductReview" element={<ProductReview/>}/>
-                <Route path="/ChatBox" element={<ChatBox/>}/>
-                <Route path="/MailSystem" element={< MailSystem/>}/>
-                <Route path="/KanbanBoard" element={< KanbanBoard/>}/>
-                <Route path="/AccordionsPlayground" element={<AccordionsPlayground/>}/>
-                <Route path="/AvatarPlayground" element={<AvatarPlayground/>}/>
-                <Route path="/BadgePlayground" element={<BadgePlayground/>}/>
-                <Route path="/BreadcrumbsPlayground" element={<BreadcrumbsPlayground/>}/>
-                <Route path="/ChipPlayground" element={<ChipPlayground/>}/>
-                <Route path="/TabsPlayground" element={<TabsPlayground/>}/>
-                <Route path="/ListPlayground" element={<ListPlayground/>}/>
-                <Route path="/AlertsPlayground" element={<AlertsPlayground/>}/>
-                <Route path="/DialogsExample" element={<DialogsExample/>}/>
-                <Route path="/PaginationPlayground" element={<PaginationPlayground/>}/>
-                <Route path="/ProgressPlayground" element={<ProgressPlayground/>}/>
-                <Route path="/RatingPlayground" element={<RatingPlayground/>}/>
-                <Route path="/SnackbarPlayground" element={<SnackbarPlayground/>}/>
-                <Route path="/SkeletonPlayground" element={<SkeletonPlayground/>}/>
-                <Route path="/TimelinePlayground" element={<TimelinePlayground/>}/> 
-                 <Route path="/TogglePlayground" element={<TogglePlayground/>}/>
-                 <Route path="/TreeViewPlayground" element={<TreeViewPlayground/>}/>
-                 <Route path="/LoginPage" element={<LoginPage/>}/>
-                 <Route path="/SignupPage" element={<SignupPage/>}/>
-                 <Route path="/ForgotPasswordPage" element={<ForgotPasswordPage/>} />
-                 <Route path="/CheckMail" element={<CheckMail />} />
-                 <Route path="/ResetPasswordPage" element={<ResetPasswordPage />} />
-                 <Route path="/VerificationCodePage" element={<VerificationCodePage />} />
-                 <Route path="/PricingCard" element={<PricingCard/>} />
-                 <Route path="/Samplepage" element={<Samplepage />} />
-                 <Route path="/AnimationPlayground" element={<AnimationPlayground/>} />
-                 <Route path="/GridDisplay" element={<GridDisplay/>} />
-                 <Route path="/ColorPalette" element={<ColorPalette/>} />
-                 <Route path="/ShadowDisplay" element={<ShadowDisplay/>} />
-                 <Route path="/TypographyShowcase" element={<TypographyShowcase/>} />
-                 
-                 
-                 
-
-              </Routes>
-            </div>
+            <Navbar toggleSidebarCall={toggleSidebar} toggleTheme={toggleTheme} />
+            <Box>
+              <Sidebar />
+              <div style={{ marginLeft: sideBarOpen ? "0px" : "270px", transition: "margin-left 0.3s", flexGrow: 1, padding: '16px', marginTop: '100px' }}>
+                <Routes>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/Analytics" element={<Analytics />} />
+                  <Route path="/Statistics" element={<Statistics />} />
+                  <Route path="/Data" element={<Data />} />
+                  <Route path="/Chart" element={<Chart />} />
+                  <Route path="/user/*" element={<UserRoutes />} />
+                  <Route path="/navigation/*" element={<ProfileRoutes />} />
+                  <Route path="/Cards" element={<Cards />} />
+                  <Route path="/Lists" element={<Lists />} />
+                  <Route path="/CustomersList" element={<CustomersList />} />
+                  <Route path="/OrdersList" element={<OrdersList />} />
+                  <Route path="/Invoice" element={<Invoice />} />
+                  <Route path="/ordernavigation/*" element={<OrderRoutes />} />
+                  <Route path="/ProductList" element={<ProductList />} />
+                  <Route path="/ProductReview" element={<ProductReview />} />
+                  <Route path="/ChatBox" element={<ChatBox />} />
+                  <Route path="/MailSystem" element={<MailSystem />} />
+                  <Route path="/EventCalendar" element={<EventCalendar />} />
+                  <Route path="/KanbanBoard" element={<KanbanBoard />} />
+                  <Route path="/AccordionsPlayground" element={<AccordionsPlayground />} />
+                  <Route path="/AvatarPlayground" element={<AvatarPlayground />} />
+                  <Route path="/BadgePlayground" element={<BadgePlayground />} />
+                  <Route path="/BreadcrumbsPlayground" element={<BreadcrumbsPlayground />} />
+                  <Route path="/ChipPlayground" element={<ChipPlayground />} />
+                  <Route path="/TabsPlayground" element={<TabsPlayground />} />
+                  <Route path="/ListPlayground" element={<ListPlayground />} />
+                  <Route path="/AlertsPlayground" element={<AlertsPlayground />} />
+                  <Route path="/DialogsExample" element={<DialogsExample />} />
+                  <Route path="/PaginationPlayground" element={<PaginationPlayground />} />
+                  <Route path="/ProgressPlayground" element={<ProgressPlayground />} />
+                  <Route path="/RatingPlayground" element={<RatingPlayground />} />
+                  <Route path="/SnackbarPlayground" element={<SnackbarPlayground />} />
+                  <Route path="/SkeletonPlayground" element={<SkeletonPlayground />} />
+                  <Route path="/TimelinePlayground" element={<TimelinePlayground />} />
+                  <Route path="/TogglePlayground" element={<TogglePlayground />} />
+                  <Route path="/TreeViewPlayground" element={<TreeViewPlayground />} />
+                  <Route path="/LoginPage" element={<LoginPage />} />
+                  <Route path="/SignupPage" element={<SignupPage />} />
+                  <Route path="/ForgotPasswordPage" element={<ForgotPasswordPage />} />
+                  <Route path="/CheckMail" element={<CheckMail />} />
+                  <Route path="/ResetPasswordPage" element={<ResetPasswordPage />} />
+                  <Route path="/VerificationCodePage" element={<VerificationCodePage />} />
+                  <Route path="/PricingCard" element={<PricingCard />} />
+                  <Route path="/Samplepage" element={<Samplepage />} />
+                  <Route path="/AnimationPlayground" element={<AnimationPlayground />} />
+                  <Route path="/GridDisplay" element={<GridDisplay />} />
+                  <Route path="/ColorPalette" element={<ColorPalette />} />
+                  <Route path="/ShadowDisplay" element={<ShadowDisplay />} />
+                  <Route path="/TypographyShowcase" element={<TypographyShowcase />} />
+                </Routes>
+              </div>
+            </Box>
           </Box>
-        </Box>
-      </Router>
-    </SidebarContextProvider>
+        </Router>
+      </SidebarContextProvider>
+    </ThemeContextProvider>
   );
 };
 
 const UserRoutes = () => (
   <Routes>
-    <Route path="/" element={<User />} />
-    <Route path="Profilepage" element={<Profilepage />} />
+    <Route path="/" element={<Profilepage />} />
     <Route path="followers" element={<Followers />} />
     <Route path="friends" element={<Friends />} />
     <Route path="gallery" element={<Gallery />} />
     <Route path="friend-requests" element={<FriendRequestCard />} />
   </Routes>
 );
+
 const ProfileRoutes = () => (
   <Routes>
     <Route path="/" element={<Navigation />} />
