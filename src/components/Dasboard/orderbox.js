@@ -11,6 +11,7 @@ import {
   LocalMallOutlined,
 } from "@mui/icons-material";
 import { LineChart, Line, ResponsiveContainer, Tooltip } from "recharts";
+import { Stack } from "@mui/system";
 
 const monthData = [
   { name: "Day 1", value: 45 },
@@ -115,13 +116,12 @@ const OrderBox = () => {
         <Grid item sx={{ mb: "6px" }} xs={12}>
           <Grid container sx={{ alignItems: "center" }}>
             <Grid item xs={6}>
-              <Grid container>
+              <Grid container spacing={2}>
                 <Grid item>
+                  <Stack direction={'row'} >
                   <Typography variant="h4" sx={{ margin: "4px 8px 6px 0px" }}>
                     {data[currentPeriod].value}
                   </Typography>
-                </Grid>
-                <Grid item>
                   <Avatar
                     sx={{
                       bgcolor: "rgb(144, 202, 249)",
@@ -141,8 +141,12 @@ const OrderBox = () => {
                       }}
                     />
                   </Avatar>
+                  </Stack>
                 </Grid>
                 <Grid item>
+                 
+                </Grid>
+                <Grid item xs={12}>
                   <Typography
                     variant="body2"
                     sx={{ color: "rgb(144, 202, 249)", fontWeight: "500" }}

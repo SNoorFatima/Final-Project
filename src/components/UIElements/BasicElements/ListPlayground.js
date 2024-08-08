@@ -178,16 +178,7 @@ const ListPlayground = () => {
           </Card>
         </Grid>
 
-        {/* Custom Aligned List */}
-        <Grid item xs={12} sm={6} md={4}>
-          <Card>
-            <CardHeader title="Custom Aligned List" titleTypographyProps={{ fontSize: '14px' }} />
-            <Divider />
-           
-             <TotalRevenue/>
-           
-          </Card>
-        </Grid>
+       
 
         {/* Scrollable List */}
         <Grid item xs={12} sm={6} md={4}>
@@ -206,6 +197,16 @@ const ListPlayground = () => {
           </Card>
         </Grid>
       </Grid>
+       {/* Custom Aligned List */}
+       <Grid item xs={12} sm={6} md={4}>
+          <Card>
+            <CardHeader title="Custom Aligned List" titleTypographyProps={{ fontSize: '14px' }} />
+            <Divider />
+           
+             <TotalRevenue/>
+           
+          </Card>
+        </Grid>
     </Paper>
   );
 };

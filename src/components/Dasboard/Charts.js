@@ -3,6 +3,7 @@ import { CardContent, Grid, Paper, Typography, Box, Button, Menu, MenuItem, Link
 import Chart from 'react-apexcharts';
 import { ArrowDropDown } from '@mui/icons-material';
 import { LineChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis, CartesianGrid, Area } from 'recharts';
+import { Stack } from '@mui/system';
 
 const barChartOptions = {
   chart: {
@@ -126,7 +127,7 @@ const lineChartOptions = {
         breakpoint: 480,
         options: {
           chart: {
-            width: '100%',
+            // width: '100%',
           },
         },
       },
@@ -229,7 +230,7 @@ const Charts = () => {
       <Grid item xs={12}  lg={4}>
         <Paper >
           <CardContent>
-            <Grid container direction={'column'}>
+            <Grid container direction={'column'} spacing={2}>
               <Grid item>
                 <Typography variant="h6">Popular Stocks</Typography>
               </Grid>
@@ -237,20 +238,20 @@ const Charts = () => {
                 <Paper sx={{backgroundColor: 'rgb(237, 231, 246)' }}>
                   <Grid container direction={'column'} >
                     <Grid item>
-                      <Grid container direction={'column'}>
+                      <Grid container justifyContent={'space-between'} >
                         <Grid item>
-                          <Typography variant='h6'>Bajaj Finery</Typography>
+                          <Typography variant='h6' p={2}>Bajaj Finery</Typography>
                         </Grid>
                         <Grid item>
-                          <Typography variant='h5'>$1839.00</Typography>
+                          <Typography variant='h5'  p={2}>$1839.00</Typography>
                         </Grid>
                       </Grid>
                     </Grid>
                     <Grid item>
-                      <Typography>10% profit</Typography>
+                      <Typography pl={2}>10% profit</Typography>
                     </Grid>
                     <Grid item>
-                      <ResponsiveContainer width="100%" height={100}>
+                      <>
                       <Chart className="linechart"
 
 options={lineChartOptions}
@@ -261,31 +262,31 @@ width = "100%"
 
 />
 
-                      </ResponsiveContainer>
+                      </>
                     </Grid>
                   </Grid>
                 </Paper>
               </Grid>
               <Grid item>
                 {stockData.map((stock, index) => (
-                  <Box
+                  <Grid container
                     key={index}
-                    display="flex"
-                    justifyContent="space-between"
-                    alignItems="center"
+                   direction={'column'}
                     sx={{ padding: "8px 0", borderBottom: "1px solid #f0f0f0" }}
                   >
-                    <Box>
+                    <Grid item>
+                      <Stack direction={'row'} justifyContent={'space-between'}>
                       <Typography>{stock.name}</Typography>
-                      <Typography variant="caption" color={stock.profit ? "green" : "red"}>
+                      <Typography  color={stock.profit ? "green" : "red"}>{stock.value}  {stock.profit ? "▲" : "▼"}</Typography>
+                    </Stack>
+                    </Grid>
+                    <Grid item>
+                   
+                    <Typography variant="caption" color={stock.profit ? "green" : "red"}>
                         {stock.profit ? "10% Profit" : "10% Loss"}
                       </Typography>
-                    </Box>
-                    <Typography>{stock.value}</Typography>
-                    <Typography color={stock.profit ? "green" : "red"}>
-                      {stock.profit ? "▲" : "▼"}
-                    </Typography>
-                  </Box>
+                    </Grid>
+                  </Grid>
                 ))}
                 <Box display="flex" justifyContent="center" sx={{ marginTop: "16px" }}>
                   <Link href="#" variant="body2">

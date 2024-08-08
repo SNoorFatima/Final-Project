@@ -4,7 +4,6 @@ import EarningBox from "./Earningbox";
 import OrderBox from "./orderbox";
 import TotalIncome from "./TotalIncome";
 import Charts from "./Charts";
-import { Margin } from "@mui/icons-material";
 import Totalicomebox2 from "./Totalicomebox2";
 
 const Dashboard = () => {

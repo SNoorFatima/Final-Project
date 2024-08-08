@@ -63,12 +63,12 @@ const EarningBox = () => {
                 <Grid item>
                   <Avatar
                     sx={{
-                      bgcolor: "rgb(144, 202, 249)",
+                      // bgcolor: "rgb(144, 202, 249)",
                       borderRadius: "50%",
                       height: "22px",
                       width: "22px",
                       margin: "16px 8px 6px 0px",
-                      color: "rgb(30, 136, 229)",
+                      // color: "rgb(30, 136, 229)",
                     }}
                     variant="square"
                   >
@@ -86,7 +86,7 @@ const EarningBox = () => {
             <Grid item>
               <Typography
                 variant="body2"
-                sx={{ color: "rgb(144, 202, 249)", fontWeight: "500" }}
+                sx={{ fontWeight: "500" }}
               >
                 Total Earning
               </Typography>

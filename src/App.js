@@ -16,7 +16,6 @@ import Friends from "./components/Application/User/Friends";
 import Gallery from "./components/Application/User/Gallery";
 import FriendRequestCard from "./components/Application/User/FriendRequests";
 import './App.css';
-import Navigation from "./components/Application/User/Profile/Navigation";
 import ProfileStyle from "./components/Application/User/Profile/ProfileStyle";
 import Personaldetails from "./components/Application/User/Profile/Personaldetails";
 import AccountSettings from "./components/Application/User/Profile/AccountSetting";
@@ -32,7 +31,6 @@ import ProductList from "./components/Application/Customer/Productlist";
 import ProductReview from "./components/Application/Customer/ProductReview";
 import OrderInvoice from "./components/Application/Customer/OrderInvoice";
 import OrderStatus from "./components/Application/Customer/OrderStatus";
-import Navidation_orders from "./components/Application/Customer/Navidation_orders";
 import ChatBox from "./components/Application/Chat/chatbox";
 import MailSystem from "./components/Application/Email/MailSystem";
 import KanbanBoard from "./components/Application/Kanban/kanbanboard";
@@ -158,8 +156,7 @@ const UserRoutes = () => (
 
 const ProfileRoutes = () => (
   <Routes>
-    <Route path="/" element={<Navigation />} />
-    <Route path="ProfileStyle" element={<ProfileStyle />} />
+    <Route path="/" element={<ProfileStyle />} />
     <Route path="Personaldetails" element={<Personaldetails />} />
     <Route path="AccountSettings" element={<AccountSettings />} />
     <Route path="ChangePassword" element={<ChangePassword />} />
@@ -169,8 +166,7 @@ const ProfileRoutes = () => (
 
 const OrderRoutes = () => (
   <Routes>
-    <Route path="/" element={<Navidation_orders />} />
-    <Route path="OrderDetails" element={<OrderDetails />} />
+    <Route path="/" element={<OrderDetails />} />
     <Route path="OrderInvoice" element={<OrderInvoice />} />
     <Route path="OrderStatus" element={<OrderStatus />} />
   </Routes>

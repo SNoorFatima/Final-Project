@@ -1,4 +1,4 @@
-import { Breadcrumbs, Container,Grid, Paper, Typography } from '@mui/material'
+import { Breadcrumbs,Grid, Paper, Typography } from '@mui/material'
 import React from 'react'
 import MarketShareCard from './Marketshare'
 import Revenuecard from './Revenuecard'
@@ -42,34 +42,34 @@ const Analytics = () => {
     </Grid>
     <Grid item xs={12}>
       <Grid container spacing={3}>
-        <Grid item lg={6} xs={12}  md={6}>
+        <Grid item  xs={12}  md={6}>
             <Grid container spacing={3} direction={'column'}>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                     <MarketShareCard/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <Revenuecard/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <Orderscard/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <LatestCustomers/>
                 </Grid>
             </Grid>
         </Grid>
-        <Grid item lg={6} xs={12}  md={6} >
+        <Grid item  xs={12}  md={6} >
         <Grid container spacing={3} direction={'column'}>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                     <DashboardBoxes/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <TotalRevenue/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <Dailyusers/>
                 </Grid>
-                <Grid item xs={12}  md={3}>
+                <Grid item xs={12} >
                   <Dailypageview/>
                 </Grid>
             </Grid>

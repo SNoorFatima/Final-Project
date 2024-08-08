@@ -35,7 +35,7 @@ const Navidation_orders = () => {
  <Grid item xs={12}>
     <AppBar position="static">
     <Tabs value={false}>
-      <Tab label="Details" component={Link} to="/ordernavigation/OrderDetails" />
+      <Tab label="Details" component={Link} to="/ordernavigation" />
       <Tab label="Invoice" component={Link} to="/ordernavigation/OrderInvoice" />
       <Tab label="Status" component={Link} to="/ordernavigation/OrderStatus" />
     </Tabs>

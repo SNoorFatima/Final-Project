@@ -36,7 +36,7 @@ const Navigation = () => {
   };
 
   const menuItems = [
-    { label: 'Profile', to: '/navigation/ProfileStyle' },
+    { label: 'Profile', to: '/navigation' },
     { label: 'Personal Details', to: '/navigation/Personaldetails' },
     { label: 'My Account', to: '/navigation/AccountSettings' },
     { label: 'Change Password', to: '/navigation/ChangePassword' },
